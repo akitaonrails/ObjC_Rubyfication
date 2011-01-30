@@ -142,4 +142,33 @@
     
     return [ret autorelease];
 }
+
+- (NSString*) rjust:(int)length {
+    return [self rjust:length withPad:@" "];
+}
+
+- (NSString*) rjust:(int)length withPad:(NSString*)padStr {
+    if (length < [self length]) {
+        return self;
+    }
+    
+    // create the larger string with pad pattern
+    int partialLen = length - [self length];
+    NSMutableString* ret = [[NSMutableString alloc] init];
+    while ([ret length] < partialLen) {
+        [ret appendString:padStr];
+    }
+    
+    // crop if resulting padded string is larger than expected
+    NSRange theRange;    
+    if ([ret length] > partialLen) {
+        theRange.location = partialLen;
+        theRange.length = ([ret length] - partialLen);
+        [ret deleteCharactersInRange:theRange];
+    }    
+    
+    [ret appendString:self];
+    return [ret autorelease];
+}
+
 @end

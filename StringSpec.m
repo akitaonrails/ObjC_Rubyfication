@@ -74,6 +74,13 @@ describe(@"NSString", ^{
         it(@"should reverse the string", ^{
             [[[@"Hello World!" reverse] should] equal:@"!dlroW olleH"];
         });
+        
+        it(@"should justify a string to the right and add the padding characters before", ^{
+            NSString* a = @"hello";
+            [[[a rjust:4] should] equal:@"hello"];
+            [[[a rjust:20] should] equal:@"               hello"];
+            [[[a rjust:20 withPad:@"1234"] should] equal:@"123412341234123hello"];            
+        });
     });
 });
 

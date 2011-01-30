@@ -25,5 +25,7 @@
 - (NSString*) ljust:(int)length;
 - (NSString*) ljust:(int)length withPad:(NSString*)padStr;
 - (NSString*) reverse;
+- (NSString*) rjust:(int)length;
+- (NSString*) rjust:(int)length withPad:(NSString*)padStr;
 
 @end
