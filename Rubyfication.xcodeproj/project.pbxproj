@@ -72,6 +72,7 @@
 		1BE9976612F52DC600855F60 /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9976512F52DC600855F60 /* NSString+functional.m */; };
 		1BE997B512F60E0300855F60 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE997B412F60E0300855F60 /* libicucore.A.dylib */; };
 		1BE997C812F6132000855F60 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE997AC12F6019E00855F60 /* RegexKitLite.m */; };
+		1BE998DC12F6342E00855F60 /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE998BC12F6332500855F60 /* NSString+activesupport.m */; };
 		AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Rubyfication_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -228,6 +229,8 @@
 		1BE997AC12F6019E00855F60 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		1BE997B412F60E0300855F60 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = usr/lib/libicucore.A.dylib; sourceTree = SDKROOT; };
 		1BE9988112F6265200855F60 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		1BE998BB12F6332500855F60 /* NSString+activesupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+activesupport.h"; sourceTree = "<group>"; };
+		1BE998BC12F6332500855F60 /* NSString+activesupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+activesupport.m"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Rubyfication_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rubyfication_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libRubyfication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRubyfication.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +301,8 @@
 				1BE996E012F5232800855F60 /* NSString+helpers.m */,
 				1BE9976412F52DC600855F60 /* NSString+functional.h */,
 				1BE9976512F52DC600855F60 /* NSString+functional.m */,
+				1BE998BB12F6332500855F60 /* NSString+activesupport.h */,
+				1BE998BC12F6332500855F60 /* NSString+activesupport.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -633,6 +638,7 @@
 				1BE996DE12F5230900855F60 /* StringSpec.m in Sources */,
 				1BE996E112F5232800855F60 /* NSString+helpers.m in Sources */,
 				1BE9976612F52DC600855F60 /* NSString+functional.m in Sources */,
+				1BE998DC12F6342E00855F60 /* NSString+activesupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

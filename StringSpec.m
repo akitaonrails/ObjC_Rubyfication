@@ -1,6 +1,7 @@
 #import "Kiwi.h"
 #import "NSString+helpers.h"
 #import "NSString+functional.h"
+#import "NSString+activesupport.h"
 
 SPEC_BEGIN(StringSpec)
 
@@ -80,6 +81,14 @@ describe(@"NSString", ^{
             [[[a rjust:4] should] equal:@"hello"];
             [[[a rjust:20] should] equal:@"               hello"];
             [[[a rjust:20 withPad:@"1234"] should] equal:@"123412341234123hello"];            
+        });
+    });
+    
+    context(@"ActiveSupport::CoreExt", ^{
+        it(@"should return the character at the given position", ^{
+            [[[@"hello" at:0] should] equal:@"h"];
+            [[[@"hello" at:2] should] equal:@"l"];
+            [[@"hello" at:10] shouldBeNil];
         });
     });
 });
