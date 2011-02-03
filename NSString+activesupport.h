@@ -14,5 +14,11 @@
 }
 
 - (NSString*) at:(NSUInteger)position;
+- (NSString*) from:(NSUInteger)position;
+- (NSString*) to:(NSUInteger)position;
+- (NSString*) first;
+- (NSString*) first:(NSUInteger)limit;
+- (NSString*) last;
+- (NSString*) last:(NSUInteger)limit;
 
 @end

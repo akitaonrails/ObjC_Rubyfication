@@ -90,6 +90,28 @@ describe(@"NSString", ^{
             [[[@"hello" at:2] should] equal:@"l"];
             [[@"hello" at:10] shouldBeNil];
         });
+        
+        it(@"should return the remaining of the string from a position", ^{
+            [[[@"hello world" from:6] should] equal:@"world"];
+        });
+        
+        it(@"should return the beginning of the string from a position", ^{
+            [[[@"hello world" to:5] should] equal:@"hello"];
+        });
+        
+        it(@"should return the first character of the string or the first few characters", ^{
+            NSString* a = @"hello";
+            [[[a first] should] equal:@"h"];
+            [[[a first:2] should] equal:@"he"];
+            [[[a first:10] should] equal:@"hello"];
+        });
+        
+        it(@"should return the last character of the string or the last few characters", ^{
+            NSString* a = @"hello";
+            [[[a last] should] equal:@"o"];
+            [[[a last:2] should] equal:@"lo"];
+            [[[a last:10] should] equal:@"hello"];
+        });
     });
 });
 
