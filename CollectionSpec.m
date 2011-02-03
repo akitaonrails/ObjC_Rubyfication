@@ -1,6 +1,7 @@
 #import "Kiwi.h"
 #import "NSArray+functional.h"
 #import "NSArray+helpers.h"
+#import "NSArray+activesupport.h"
 
 SPEC_BEGIN(CollectionSpec)
 
@@ -92,7 +93,6 @@ describe(@"NSArray", ^{
         });
         
     });
-    
     
     context(@"Helpers", ^{
         beforeEach(^{
@@ -213,6 +213,36 @@ describe(@"NSArray", ^{
             [[[[listD objectAtIndex:2] objectAtIndex:1] should] equal:[NSNull null]];
             [[[[listD objectAtIndex:2] objectAtIndex:2] should] equal:[NSNull null]];
         });
+    });
+    
+    context(@"ActiveSupport::CoreExt", ^{
+        beforeEach(^{
+            list = [NSArray arrayWithObjects:@"a", @"b", @"c", @"d", nil];
+        });
+        
+        it(@"should return the tail of the collection from the position", ^{
+            [[theValue([[list from:0] count]) should] equal:theValue(4)];
+            [[theValue([[list from:2] count]) should] equal:theValue(2)];
+            [[theValue([[list from:10] count]) should] equal:theValue(0)];
+        });
+
+        it(@"should return the head of the collection to the position", ^{
+            [[theValue([[list to:0] count]) should] equal:theValue(1)];
+            [[theValue([[list to:2] count]) should] equal:theValue(3)];
+            [[theValue([[list to:10] count]) should] equal:theValue(4)];
+        });
+        
+        it(@"should return the second element", ^{
+            [[[list second] should] equal:@"b"];
+        });
+        
+        it(@"should return the third element", ^{
+            [[[list third] should] equal:@"c"];
+        });
+        
+        it(@"should return the 42th element", ^{
+            [[[list fortyTwo] should] equal:[NSNull null]];
+        });        
     });
 });
 
