@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (activesupport) {
-
-}
+@interface NSString (activesupport)
 
 - (NSString*) at:(NSUInteger)position;
 - (NSString*) from:(NSUInteger)position;

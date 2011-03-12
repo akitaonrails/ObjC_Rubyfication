@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (functional) {
-    
-}
+@interface NSArray (functional)
 
 - (void) each:(void (^) (id))block;
 - (NSArray*) map:(id (^) (id))block;

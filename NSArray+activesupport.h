@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSArray (activesupport) {
-
-}
+@interface NSArray (activesupport)
 
 - (NSArray*) from:(NSUInteger)position;
 - (NSArray*) to:(NSUInteger)position;

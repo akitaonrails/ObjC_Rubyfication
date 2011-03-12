@@ -65,6 +65,16 @@
 		1B52621212DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261D812DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m */; };
 		1B52621312DB3EA20041769A /* NSValue+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */; };
 		1B52621912DB3EC20041769A /* CollectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52621812DB3EC20041769A /* CollectionSpec.m */; };
+		1B980A16132B1B2D008D10AA /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9932612F32D5700855F60 /* NSArray+functional.m */; };
+		1B980A18132B1B2D008D10AA /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE994FC12F380E900855F60 /* NSArray+helpers.m */; };
+		1B980A1A132B1B2D008D10AA /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE996E012F5232800855F60 /* NSString+helpers.m */; };
+		1B980A1C132B1B2D008D10AA /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9976512F52DC600855F60 /* NSString+functional.m */; };
+		1B980A1E132B1B2D008D10AA /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE998BC12F6332500855F60 /* NSString+activesupport.m */; };
+		1B980A20132B1B2D008D10AA /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3E95712FA29D2008253EA /* NSArray+activesupport.m */; };
+		1B980A55132B29FF008D10AA /* libRubyfication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libRubyfication.a */; };
+		1B980A59132B2B8C008D10AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
+		1B980A61132B2EF4008D10AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A60132B2EF4008D10AA /* CoreGraphics.framework */; };
+		1B980A63132B2EF9008D10AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A62132B2EF8008D10AA /* UIKit.framework */; };
 		1BD3E95D12FA2A4D008253EA /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3E95712FA29D2008253EA /* NSArray+activesupport.m */; };
 		1BE9932712F32D5700855F60 /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9932612F32D5700855F60 /* NSArray+functional.m */; };
 		1BE994FD12F380E900855F60 /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE994FC12F380E900855F60 /* NSArray+helpers.m */; };
@@ -79,12 +89,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1BE992F212F32B7C00855F60 /* PBXContainerItemProxy */ = {
+		1B980A56132B2B7F008D10AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1B52615012DB3E850041769A;
-			remoteInfo = SpecTests;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Rubyfication;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -217,6 +227,9 @@
 		1B5261D912DB3EA20041769A /* NSValue+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+KiwiAdditions.h"; sourceTree = "<group>"; };
 		1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+KiwiAdditions.m"; sourceTree = "<group>"; };
 		1B52621812DB3EC20041769A /* CollectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionSpec.m; sourceTree = "<group>"; };
+		1B980A58132B2B8C008D10AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1B980A60132B2EF4008D10AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1B980A62132B2EF8008D10AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BD3E95612FA29D2008253EA /* NSArray+activesupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+activesupport.h"; sourceTree = "<group>"; };
 		1BD3E95712FA29D2008253EA /* NSArray+activesupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+activesupport.m"; sourceTree = "<group>"; };
 		1BE9932512F32D5700855F60 /* NSArray+functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+functional.h"; sourceTree = "<group>"; };
@@ -244,6 +257,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B980A63132B2EF9008D10AA /* UIKit.framework in Frameworks */,
+				1B980A61132B2EF4008D10AA /* CoreGraphics.framework in Frameworks */,
+				1B980A59132B2B8C008D10AA /* Foundation.framework in Frameworks */,
+				1B980A55132B29FF008D10AA /* libRubyfication.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +279,6 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libRubyfication.a */,
 				1B52615112DB3E850041769A /* SpecTests.octest */,
 			);
 			name = Products;
@@ -278,6 +294,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				D2AAC07E0554694100DB518D /* libRubyfication.a */,
 				1B52615212DB3E850041769A /* SpecTests-Info.plist */,
 				1BE997B412F60E0300855F60 /* libicucore.A.dylib */,
 				1BE9988112F6265200855F60 /* README.textile */,
@@ -288,6 +305,9 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B980A62132B2EF8008D10AA /* UIKit.framework */,
+				1B980A60132B2EF4008D10AA /* CoreGraphics.framework */,
+				1B980A58132B2B8C008D10AA /* Foundation.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -496,6 +516,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B980A57132B2B7F008D10AA /* PBXTargetDependency */,
 			);
 			name = SpecTests;
 			productName = SpecTests;
@@ -513,7 +534,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1BE992F312F32B7C00855F60 /* PBXTargetDependency */,
 			);
 			name = Rubyfication;
 			productName = Rubyfication;
@@ -652,6 +672,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B980A16132B1B2D008D10AA /* NSArray+functional.m in Sources */,
+				1B980A18132B1B2D008D10AA /* NSArray+helpers.m in Sources */,
+				1B980A1A132B1B2D008D10AA /* NSString+helpers.m in Sources */,
+				1B980A1C132B1B2D008D10AA /* NSString+functional.m in Sources */,
+				1B980A1E132B1B2D008D10AA /* NSString+activesupport.m in Sources */,
+				1B980A20132B1B2D008D10AA /* NSArray+activesupport.m in Sources */,
 				1BE997C812F6132000855F60 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,10 +685,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1BE992F312F32B7C00855F60 /* PBXTargetDependency */ = {
+		1B980A57132B2B7F008D10AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1B52615012DB3E850041769A /* SpecTests */;
-			targetProxy = 1BE992F212F32B7C00855F60 /* PBXContainerItemProxy */;
+			target = D2AAC07D0554694100DB518D /* Rubyfication */;
+			targetProxy = 1B980A56132B2B7F008D10AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -672,7 +698,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -681,15 +707,13 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Rubyfication_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SpecTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
-					"-framework",
 					SenTestingKit,
-					"-framework",
-					UIKit,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SpecTests;
@@ -711,14 +735,12 @@
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Rubyfication_Prefix.pch;
 				INFOPLIST_FILE = "SpecTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
-					"-framework",
 					SenTestingKit,
-					"-framework",
-					UIKit,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SpecTests;

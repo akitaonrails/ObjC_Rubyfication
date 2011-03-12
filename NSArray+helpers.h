@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSArray (helpers) {
-
-}
+@interface NSArray (helpers)
 
 - (NSArray*) slice:(int)start;
 - (NSArray*) slice:(int)start until:(int)until;

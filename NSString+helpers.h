@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (helpers) {
-
-}
+@interface NSString (helpers)
 
 - (NSString*) concat:(NSString*)anotherString;
 - (NSString*) slice:(int)start;

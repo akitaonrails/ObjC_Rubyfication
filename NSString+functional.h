@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (functional) {
-
-}
+@interface NSString (functional)
 
 - (void) each_line:(void (^) (NSString*))block;
 - (void) each_line:(NSString*)separator withBlock:(void (^) (NSString*))block;
