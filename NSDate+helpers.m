@@ -51,7 +51,15 @@
 
 + (NSDate*) parse:(NSString*)date {
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
-    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    if ([date length] >= 19) {
+        [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    } else if ([date length] == 16) {
+        [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    } else if ([date length] == 13) {
+        [inputFormatter setDateFormat:@"yyyy-MM-dd HH"];
+    } else {
+        [inputFormatter setDateFormat:@"yyyy-MM-dd"];
+    }
     
     return [inputFormatter dateFromString:date];
 }
@@ -62,7 +70,6 @@
 - (NSString*) to_formatted_s:(NSString*)format {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:[NSDate formatter:format]];
-    
     return [outputFormatter stringFromDate:self];
 }
 
