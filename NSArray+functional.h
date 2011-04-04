@@ -13,8 +13,8 @@
 - (void) each:(void (^) (id))block;
 - (NSArray*) map:(id (^) (id))block;
 - (id) inject:(id)initialValue with:(id (^) (id total, id item))block;
-- (void) each_index:(void (^) (int))block;
+- (void) eachIndex:(void (^) (int))block;
 - (NSArray*) select:(BOOL (^) (id))block;
 - (NSArray*) reject:(BOOL (^) (id))block;
-- (void) reverse_each:(void (^) (id))block;
+- (void) reverseEach:(void (^) (id))block;
 @end

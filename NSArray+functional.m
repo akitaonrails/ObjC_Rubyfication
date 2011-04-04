@@ -33,7 +33,7 @@
     return initialValue;
 }
 
-- (void) each_index:(void (^) (int))block {
+- (void) eachIndex:(void (^) (int))block {
     int i;
     for (i = 0; i < [self count]; i ++) {
         block(i);
@@ -61,7 +61,7 @@
     return [ret autorelease];
 }
 
-- (void) reverse_each:(void (^) (id))block {
+- (void) reverseEach:(void (^) (id))block {
     for (int i = [self count] - 1; i >= 0; i --) {
         block([self objectAtIndex:i]);
     }

@@ -42,7 +42,7 @@ describe(@"NSArray", ^{
         it(@"should pass the index of the element in the collection to the block", ^{
                 // do not forget to mark the variable so it can be used inside the closure
             __block int total = 0;
-            [list each_index:^(int index) {
+            [list eachIndex:^(int index) {
                 total += index;
             }];
             [[theValue(total) should] equal:theValue(3)];
@@ -84,7 +84,7 @@ describe(@"NSArray", ^{
         
         it(@"should traverse through the collection in reverse order", ^{
             NSMutableArray* list2 = [[NSMutableArray alloc] init];
-            [list reverse_each:^(id item) {
+            [list reverseEach:^(id item) {
                 [list2 addObject:item];
             }];
             [[[list2 objectAtIndex:0] should] equal:@"c"];

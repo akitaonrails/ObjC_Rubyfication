@@ -69,7 +69,7 @@
     return ([self length] == 0);
 }
 
-- (BOOL) end_with:(NSString*)anotherString {
+- (BOOL) endWith:(NSString*)anotherString {
     return [self hasSuffix:anotherString];
 }
 

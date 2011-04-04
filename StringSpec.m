@@ -10,7 +10,7 @@ describe(@"NSString", ^{
         it(@"should traverse each line at a time", ^{
             NSString* a = @"hello\nworld\nagain";
             NSMutableArray* b = [[NSMutableArray alloc] init];
-            [a each_line:^(NSString* line){
+            [a eachLine:^(NSString* line){
                 [b addObject:line];
             }];
             [[[b objectAtIndex:0] should] equal:@"hello"];
@@ -48,8 +48,8 @@ describe(@"NSString", ^{
         });
         
         it(@"should check whether a string ends with a given substring", ^{
-            [[theValue([@"hello world" end_with:@"world"]) should] beTrue];
-            [[theValue([@"hello world" end_with:@"hello"]) should] beFalse];
+            [[theValue([@"hello world" endWith:@"world"]) should] beTrue];
+            [[theValue([@"hello world" endWith:@"hello"]) should] beFalse];
         });
         
         it(@"should locate the position of a substring inside the string", ^{

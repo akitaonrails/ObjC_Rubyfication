@@ -67,7 +67,7 @@
 #pragma -
 #pragma Formatter
 
-- (NSString*) to_formatted_s:(NSString*)format {
+- (NSString*) toFormattedString:(NSString*)format {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:[NSDate formatter:format]];
     return [outputFormatter stringFromDate:self];

@@ -11,11 +11,11 @@
 
 @implementation NSString (functional)
 
-- (void) each_line:(void (^) (NSString*))block {
-    [self each_line:@"\n" withBlock:block];
+- (void) eachLine:(void (^) (NSString*))block {
+    [self eachLine:@"\n" withBlock:block];
 }
 
-- (void) each_line:(NSString*)separator withBlock:(void (^) (NSString*))block {
+- (void) eachLine:(NSString*)separator withBlock:(void (^) (NSString*))block {
     for (NSString* line in [self componentsSeparatedByString:separator]) {
         block(line);
     }

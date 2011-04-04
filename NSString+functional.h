@@ -11,7 +11,7 @@
 
 @interface NSString (functional)
 
-- (void) each_line:(void (^) (NSString*))block;
-- (void) each_line:(NSString*)separator withBlock:(void (^) (NSString*))block;
+- (void) eachLine:(void (^) (NSString*))block;
+- (void) eachLine:(NSString*)separator withBlock:(void (^) (NSString*))block;
 
 @end

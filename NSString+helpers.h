@@ -17,7 +17,7 @@
 - (NSString*) center:(int)length;
 - (NSString*) center:(int)length withPad:(NSString*)padStr;
 - (BOOL) isEmpty;
-- (BOOL) end_with:(NSString*)anotherString;
+- (BOOL) endWith:(NSString*)anotherString;
 - (int) index:(NSString*)str;
 - (NSString*) insert:(NSString*)str at:(int)position;
 - (NSString*) ljust:(int)length;

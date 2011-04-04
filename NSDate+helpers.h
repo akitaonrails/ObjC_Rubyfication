@@ -21,5 +21,5 @@
 
 + (NSString*) formatter:(NSString*)format;
 
-- (NSString*) to_formatted_s:(NSString*)format;
+- (NSString*) toFormattedString:(NSString*)format;
 @end
