@@ -65,6 +65,10 @@
 		1B52621212DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261D812DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m */; };
 		1B52621312DB3EA20041769A /* NSValue+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */; };
 		1B52621912DB3EC20041769A /* CollectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52621812DB3EC20041769A /* CollectionSpec.m */; };
+		1B7F4A951349831F005C3A83 /* DateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A941349831F005C3A83 /* DateSpec.m */; };
+		1B7F4A9813498357005C3A83 /* NSDate+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4A9613498357005C3A83 /* NSDate+helpers.h */; };
+		1B7F4A9913498357005C3A83 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A9713498357005C3A83 /* NSDate+helpers.m */; };
+		1B7F4A9A13498A9F005C3A83 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A9713498357005C3A83 /* NSDate+helpers.m */; };
 		1B980A16132B1B2D008D10AA /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9932612F32D5700855F60 /* NSArray+functional.m */; };
 		1B980A18132B1B2D008D10AA /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE994FC12F380E900855F60 /* NSArray+helpers.m */; };
 		1B980A1A132B1B2D008D10AA /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE996E012F5232800855F60 /* NSString+helpers.m */; };
@@ -227,6 +231,9 @@
 		1B5261D912DB3EA20041769A /* NSValue+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+KiwiAdditions.h"; sourceTree = "<group>"; };
 		1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+KiwiAdditions.m"; sourceTree = "<group>"; };
 		1B52621812DB3EC20041769A /* CollectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionSpec.m; sourceTree = "<group>"; };
+		1B7F4A941349831F005C3A83 /* DateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSpec.m; sourceTree = "<group>"; };
+		1B7F4A9613498357005C3A83 /* NSDate+helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+helpers.h"; sourceTree = "<group>"; };
+		1B7F4A9713498357005C3A83 /* NSDate+helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+helpers.m"; sourceTree = "<group>"; };
 		1B980A58132B2B8C008D10AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B980A60132B2EF4008D10AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1B980A62132B2EF8008D10AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -328,6 +335,8 @@
 				1BE998BC12F6332500855F60 /* NSString+activesupport.m */,
 				1BD3E95612FA29D2008253EA /* NSArray+activesupport.h */,
 				1BD3E95712FA29D2008253EA /* NSArray+activesupport.m */,
+				1B7F4A9613498357005C3A83 /* NSDate+helpers.h */,
+				1B7F4A9713498357005C3A83 /* NSDate+helpers.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -469,6 +478,7 @@
 			children = (
 				1B52621812DB3EC20041769A /* CollectionSpec.m */,
 				1BE996DD12F5230900855F60 /* StringSpec.m */,
+				1B7F4A941349831F005C3A83 /* DateSpec.m */,
 			);
 			name = Specs;
 			sourceTree = "<group>";
@@ -498,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */,
+				1B7F4A9813498357005C3A83 /* NSDate+helpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7F4A9A13498A9F005C3A83 /* NSDate+helpers.m in Sources */,
 				1B5261DB12DB3EA20041769A /* KWAfterAllNode.m in Sources */,
 				1B5261DC12DB3EA20041769A /* KWAfterEachNode.m in Sources */,
 				1B5261DD12DB3EA20041769A /* KWBeBetweenMatcher.m in Sources */,
@@ -665,6 +677,7 @@
 				1BE9976612F52DC600855F60 /* NSString+functional.m in Sources */,
 				1BE998DC12F6342E00855F60 /* NSString+activesupport.m in Sources */,
 				1BD3E95D12FA2A4D008253EA /* NSArray+activesupport.m in Sources */,
+				1B7F4A951349831F005C3A83 /* DateSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +692,7 @@
 				1B980A1E132B1B2D008D10AA /* NSString+activesupport.m in Sources */,
 				1B980A20132B1B2D008D10AA /* NSArray+activesupport.m in Sources */,
 				1BE997C812F6132000855F60 /* RegexKitLite.m in Sources */,
+				1B7F4A9913498357005C3A83 /* NSDate+helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
