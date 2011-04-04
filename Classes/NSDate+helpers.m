@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+helpers.h"
+#import "time.h"
 
 
 @implementation NSDate (helpers)
@@ -68,9 +69,14 @@
 #pragma Formatter
 
 - (NSString*) toFormattedString:(NSString*)format {
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:[NSDate formatter:format]];
-    return [outputFormatter stringFromDate:self];
+    time_t unixTime = (time_t) [self timeIntervalSince1970];
+    struct tm timeStruct;
+    localtime_r(&unixTime, &timeStruct);
+    
+    char buffer[30];
+    strftime(buffer, 30, [[NSDate formatter:format] cStringUsingEncoding:[NSString defaultCStringEncoding]], &timeStruct);
+    NSString* output = [NSString stringWithCString:buffer encoding:[NSString defaultCStringEncoding]]; 
+    return output;
 }
 
 + (NSString*) formatter:(NSString*)format {
@@ -85,6 +91,8 @@
         formatter = @"%Y%m%d%H%M%S";
     } else if ([format isEqualToString:@"rfc822"]) {
         formatter = @"%a, %d %b %Y %H:%M:%S";
+    } else if ([format isEqualToString:@"rfc3339"]) {
+        formatter = @"%Y-%m-%dT%H:%M:%S%Z";
     } else {
         formatter = @"%Y-%m-%d %H:%M:%S";
     }
