@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0A3C1F135D5E830004F4F0 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C06135D5E830004F4F0 /* config.h */; };
+		1B0A3C20135D5E830004F4F0 /* ascii.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C09135D5E830004F4F0 /* ascii.c */; };
+		1B0A3C21135D5E830004F4F0 /* unicode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0A135D5E830004F4F0 /* unicode.c */; };
+		1B0A3C22135D5E830004F4F0 /* utf16_le.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0B135D5E830004F4F0 /* utf16_le.c */; };
+		1B0A3C23135D5E830004F4F0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C0C135D5E830004F4F0 /* oniguruma.h */; };
+		1B0A3C24135D5E830004F4F0 /* regcomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0D135D5E830004F4F0 /* regcomp.c */; };
+		1B0A3C25135D5E830004F4F0 /* regenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0E135D5E830004F4F0 /* regenc.c */; };
+		1B0A3C26135D5E830004F4F0 /* regenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C0F135D5E830004F4F0 /* regenc.h */; };
+		1B0A3C27135D5E830004F4F0 /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C10135D5E830004F4F0 /* regerror.c */; };
+		1B0A3C28135D5E830004F4F0 /* regexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C11135D5E830004F4F0 /* regexec.c */; };
+		1B0A3C29135D5E830004F4F0 /* regext.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C12135D5E830004F4F0 /* regext.c */; };
+		1B0A3C2A135D5E830004F4F0 /* regint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C13135D5E830004F4F0 /* regint.h */; };
+		1B0A3C2B135D5E830004F4F0 /* regparse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C14135D5E830004F4F0 /* regparse.c */; };
+		1B0A3C2C135D5E830004F4F0 /* regparse.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C15135D5E830004F4F0 /* regparse.h */; };
+		1B0A3C2D135D5E830004F4F0 /* regsyntax.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C16135D5E830004F4F0 /* regsyntax.c */; };
+		1B0A3C2E135D5E830004F4F0 /* regtrav.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C17135D5E830004F4F0 /* regtrav.c */; };
+		1B0A3C2F135D5E830004F4F0 /* regversion.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C18135D5E830004F4F0 /* regversion.c */; };
+		1B0A3C30135D5E830004F4F0 /* st.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C19135D5E830004F4F0 /* st.c */; };
+		1B0A3C31135D5E830004F4F0 /* st.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1A135D5E830004F4F0 /* st.h */; };
+		1B0A3C32135D5E830004F4F0 /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */; };
+		1B0A3C33135D5E830004F4F0 /* OnigRegexpUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1C135D5E830004F4F0 /* OnigRegexpUtility.h */; };
+		1B0A3C34135D5E830004F4F0 /* OnigRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */; };
+		1B0A3C35135D5E830004F4F0 /* OnigRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1E135D5E830004F4F0 /* OnigRegexp.h */; };
 		1B5261DB12DB3EA20041769A /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616212DB3EA20041769A /* KWAfterAllNode.m */; };
 		1B5261DC12DB3EA20041769A /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616412DB3EA20041769A /* KWAfterEachNode.m */; };
 		1B5261DD12DB3EA20041769A /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616612DB3EA20041769A /* KWBeBetweenMatcher.m */; };
@@ -108,6 +131,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0A3C06135D5E830004F4F0 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		1B0A3C07135D5E830004F4F0 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		1B0A3C09135D5E830004F4F0 /* ascii.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ascii.c; sourceTree = "<group>"; };
+		1B0A3C0A135D5E830004F4F0 /* unicode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unicode.c; sourceTree = "<group>"; };
+		1B0A3C0B135D5E830004F4F0 /* utf16_le.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utf16_le.c; sourceTree = "<group>"; };
+		1B0A3C0C135D5E830004F4F0 /* oniguruma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oniguruma.h; sourceTree = "<group>"; };
+		1B0A3C0D135D5E830004F4F0 /* regcomp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regcomp.c; sourceTree = "<group>"; };
+		1B0A3C0E135D5E830004F4F0 /* regenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regenc.c; sourceTree = "<group>"; };
+		1B0A3C0F135D5E830004F4F0 /* regenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regenc.h; sourceTree = "<group>"; };
+		1B0A3C10135D5E830004F4F0 /* regerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regerror.c; sourceTree = "<group>"; };
+		1B0A3C11135D5E830004F4F0 /* regexec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regexec.c; sourceTree = "<group>"; };
+		1B0A3C12135D5E830004F4F0 /* regext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regext.c; sourceTree = "<group>"; };
+		1B0A3C13135D5E830004F4F0 /* regint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regint.h; sourceTree = "<group>"; };
+		1B0A3C14135D5E830004F4F0 /* regparse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regparse.c; sourceTree = "<group>"; };
+		1B0A3C15135D5E830004F4F0 /* regparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regparse.h; sourceTree = "<group>"; };
+		1B0A3C16135D5E830004F4F0 /* regsyntax.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regsyntax.c; sourceTree = "<group>"; };
+		1B0A3C17135D5E830004F4F0 /* regtrav.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regtrav.c; sourceTree = "<group>"; };
+		1B0A3C18135D5E830004F4F0 /* regversion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regversion.c; sourceTree = "<group>"; };
+		1B0A3C19135D5E830004F4F0 /* st.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = st.c; sourceTree = "<group>"; };
+		1B0A3C1A135D5E830004F4F0 /* st.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = st.h; sourceTree = "<group>"; };
+		1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnigRegexpUtility.m; path = Oniguruma/OnigRegexpUtility.m; sourceTree = "<group>"; };
+		1B0A3C1C135D5E830004F4F0 /* OnigRegexpUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnigRegexpUtility.h; path = Oniguruma/OnigRegexpUtility.h; sourceTree = "<group>"; };
+		1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnigRegexp.m; path = Oniguruma/OnigRegexp.m; sourceTree = "<group>"; };
+		1B0A3C1E135D5E830004F4F0 /* OnigRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnigRegexp.h; path = Oniguruma/OnigRegexp.h; sourceTree = "<group>"; };
 		1B52615112DB3E850041769A /* SpecTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpecTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B52615212DB3E850041769A /* SpecTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpecTests-Info.plist"; sourceTree = "<group>"; };
 		1B52615E12DB3EA20041769A /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
@@ -297,6 +344,7 @@
 		0867D691FE84028FC02AAC07 /* Rubyfication */ = {
 			isa = PBXGroup;
 			children = (
+				1B0A3C01135D5E6F0004F4F0 /* Oniguruma */,
 				1B52621512DB3EA50041769A /* Specs */,
 				1B52615D12DB3EA20041769A /* Kiwi */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -341,6 +389,54 @@
 				1B7F4AB213499164005C3A83 /* NSString+helpers.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		1B0A3C01135D5E6F0004F4F0 /* Oniguruma */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A3C05135D5E830004F4F0 /* oniguruma */,
+				1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */,
+				1B0A3C1C135D5E830004F4F0 /* OnigRegexpUtility.h */,
+				1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */,
+				1B0A3C1E135D5E830004F4F0 /* OnigRegexp.h */,
+			);
+			name = Oniguruma;
+			sourceTree = "<group>";
+		};
+		1B0A3C05135D5E830004F4F0 /* oniguruma */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A3C06135D5E830004F4F0 /* config.h */,
+				1B0A3C07135D5E830004F4F0 /* COPYING */,
+				1B0A3C08135D5E830004F4F0 /* enc */,
+				1B0A3C0C135D5E830004F4F0 /* oniguruma.h */,
+				1B0A3C0D135D5E830004F4F0 /* regcomp.c */,
+				1B0A3C0E135D5E830004F4F0 /* regenc.c */,
+				1B0A3C0F135D5E830004F4F0 /* regenc.h */,
+				1B0A3C10135D5E830004F4F0 /* regerror.c */,
+				1B0A3C11135D5E830004F4F0 /* regexec.c */,
+				1B0A3C12135D5E830004F4F0 /* regext.c */,
+				1B0A3C13135D5E830004F4F0 /* regint.h */,
+				1B0A3C14135D5E830004F4F0 /* regparse.c */,
+				1B0A3C15135D5E830004F4F0 /* regparse.h */,
+				1B0A3C16135D5E830004F4F0 /* regsyntax.c */,
+				1B0A3C17135D5E830004F4F0 /* regtrav.c */,
+				1B0A3C18135D5E830004F4F0 /* regversion.c */,
+				1B0A3C19135D5E830004F4F0 /* st.c */,
+				1B0A3C1A135D5E830004F4F0 /* st.h */,
+			);
+			name = oniguruma;
+			path = Oniguruma/oniguruma;
+			sourceTree = "<group>";
+		};
+		1B0A3C08135D5E830004F4F0 /* enc */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A3C09135D5E830004F4F0 /* ascii.c */,
+				1B0A3C0A135D5E830004F4F0 /* unicode.c */,
+				1B0A3C0B135D5E830004F4F0 /* utf16_le.c */,
+			);
+			path = enc;
 			sourceTree = "<group>";
 		};
 		1B52615D12DB3EA20041769A /* Kiwi */ = {
@@ -508,6 +604,14 @@
 				1B7F4ABF13499164005C3A83 /* NSString+activesupport.h in Headers */,
 				1B7F4AC213499164005C3A83 /* NSString+functional.h in Headers */,
 				1B7F4AC513499164005C3A83 /* NSString+helpers.h in Headers */,
+				1B0A3C1F135D5E830004F4F0 /* config.h in Headers */,
+				1B0A3C23135D5E830004F4F0 /* oniguruma.h in Headers */,
+				1B0A3C26135D5E830004F4F0 /* regenc.h in Headers */,
+				1B0A3C2A135D5E830004F4F0 /* regint.h in Headers */,
+				1B0A3C2C135D5E830004F4F0 /* regparse.h in Headers */,
+				1B0A3C31135D5E830004F4F0 /* st.h in Headers */,
+				1B0A3C33135D5E830004F4F0 /* OnigRegexpUtility.h in Headers */,
+				1B0A3C35135D5E830004F4F0 /* OnigRegexp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +795,21 @@
 				1B7F4AC013499164005C3A83 /* NSString+activesupport.m in Sources */,
 				1B7F4AC313499164005C3A83 /* NSString+functional.m in Sources */,
 				1B7F4AC613499164005C3A83 /* NSString+helpers.m in Sources */,
+				1B0A3C20135D5E830004F4F0 /* ascii.c in Sources */,
+				1B0A3C21135D5E830004F4F0 /* unicode.c in Sources */,
+				1B0A3C22135D5E830004F4F0 /* utf16_le.c in Sources */,
+				1B0A3C24135D5E830004F4F0 /* regcomp.c in Sources */,
+				1B0A3C25135D5E830004F4F0 /* regenc.c in Sources */,
+				1B0A3C27135D5E830004F4F0 /* regerror.c in Sources */,
+				1B0A3C28135D5E830004F4F0 /* regexec.c in Sources */,
+				1B0A3C29135D5E830004F4F0 /* regext.c in Sources */,
+				1B0A3C2B135D5E830004F4F0 /* regparse.c in Sources */,
+				1B0A3C2D135D5E830004F4F0 /* regsyntax.c in Sources */,
+				1B0A3C2E135D5E830004F4F0 /* regtrav.c in Sources */,
+				1B0A3C2F135D5E830004F4F0 /* regversion.c in Sources */,
+				1B0A3C30135D5E830004F4F0 /* st.c in Sources */,
+				1B0A3C32135D5E830004F4F0 /* OnigRegexpUtility.m in Sources */,
+				1B0A3C34135D5E830004F4F0 /* OnigRegexp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

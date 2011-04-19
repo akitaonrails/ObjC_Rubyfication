@@ -8,23 +8,19 @@ But, Obj-C has features such as Blocks, Categories, Selectors, Variable length
 arguments list for methods, and this allow us to emulate much of the Ruby
 standard libraries and syntax to Obj-C.
 
-To make it even more Ruby-like I am using "Kiwi":http://www.kiwi-lib.info/ which is a RSpec-like library
-for unit testing. It is far easier to use than SenTesting alone.
-
-The idea is to implement Categories to add features to existing Obj-C classes
+The idea is to implement Categories to add Ruby-ish features to existing Obj-C classes
 such as NSString and NSArray.
 
-If all goes well, the second step is to implement ActiveSupport and add stuff
-like:
+Then you can code like this:
 
 <pre><code>
-[[theValue(1) day] ago];
-</code></pre>
+NSString* a = @"hello\nworld\nagain";
+NSMutableArray* b = [[NSMutableArray alloc] init];
+[a eachLine:^(NSString* line){
+  [b addObject:line];
+}];
 
-Or, who knows, even:
-
-<pre><code>
-[@"octopus" pluralize];
+NSDate* ref = [NSDate parse:@"2010-01-01 10:15:30"];
 </code></pre>
 
 Feel free to add new features and let me know if this is useful or not, right
@@ -33,3 +29,5 @@ now I am doing this just for the fun of it.
 h2. Credits
 
 * "Fabio Akita":http://www.akitaonrails.com
+* "Satoshi Nakagawa":https://github.com/psychs/cocoaoniguruma/ for the Oniguruma port
+* "Allen Ding":https://github.com/allending/Kiwi for Kiwi

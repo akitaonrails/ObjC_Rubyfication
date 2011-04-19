@@ -7,7 +7,7 @@
 //
 
 #import "NSString+helpers.h"
-
+#import "OnigRegexp.h"
 
 @implementation NSString (helpers)
 
