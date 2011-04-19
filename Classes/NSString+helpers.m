@@ -7,7 +7,6 @@
 //
 
 #import "NSString+helpers.h"
-#import "RegexKitLite.h"
 
 
 @implementation NSString (helpers)

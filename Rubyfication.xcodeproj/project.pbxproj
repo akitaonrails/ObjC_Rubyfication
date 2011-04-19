@@ -64,8 +64,6 @@
 		1B52621112DB3EA20041769A /* NSObject+KiwiStubAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261D612DB3EA20041769A /* NSObject+KiwiStubAdditions.m */; };
 		1B52621212DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261D812DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m */; };
 		1B52621312DB3EA20041769A /* NSValue+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */; };
-		1B7F4A9D13499142005C3A83 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4A9B13499142005C3A83 /* RegexKitLite.h */; };
-		1B7F4A9E13499142005C3A83 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A9C13499142005C3A83 /* RegexKitLite.m */; };
 		1B7F4AA213499155005C3A83 /* CollectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A9F13499155005C3A83 /* CollectionSpec.m */; };
 		1B7F4AA313499155005C3A83 /* DateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA013499155005C3A83 /* DateSpec.m */; };
 		1B7F4AA413499155005C3A83 /* StringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA113499155005C3A83 /* StringSpec.m */; };
@@ -237,8 +235,6 @@
 		1B5261D812DB3EA20041769A /* NSObject+KiwiVerifierAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KiwiVerifierAdditions.m"; sourceTree = "<group>"; };
 		1B5261D912DB3EA20041769A /* NSValue+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+KiwiAdditions.h"; sourceTree = "<group>"; };
 		1B5261DA12DB3EA20041769A /* NSValue+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+KiwiAdditions.m"; sourceTree = "<group>"; };
-		1B7F4A9B13499142005C3A83 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = "RegexKit Lite/RegexKitLite.h"; sourceTree = "<group>"; };
-		1B7F4A9C13499142005C3A83 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = "RegexKit Lite/RegexKitLite.m"; sourceTree = "<group>"; };
 		1B7F4A9F13499155005C3A83 /* CollectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionSpec.m; path = Specs/CollectionSpec.m; sourceTree = "<group>"; };
 		1B7F4AA013499155005C3A83 /* DateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateSpec.m; path = Specs/DateSpec.m; sourceTree = "<group>"; };
 		1B7F4AA113499155005C3A83 /* StringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringSpec.m; path = Specs/StringSpec.m; sourceTree = "<group>"; };
@@ -301,7 +297,6 @@
 		0867D691FE84028FC02AAC07 /* Rubyfication */ = {
 			isa = PBXGroup;
 			children = (
-				1BE997A912F6019200855F60 /* RegexKit Lite */,
 				1B52621512DB3EA50041769A /* Specs */,
 				1B52615D12DB3EA20041769A /* Kiwi */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -490,15 +485,6 @@
 			name = Specs;
 			sourceTree = "<group>";
 		};
-		1BE997A912F6019200855F60 /* RegexKit Lite */ = {
-			isa = PBXGroup;
-			children = (
-				1B7F4A9B13499142005C3A83 /* RegexKitLite.h */,
-				1B7F4A9C13499142005C3A83 /* RegexKitLite.m */,
-			);
-			name = "RegexKit Lite";
-			sourceTree = "<group>";
-		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,7 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */,
-				1B7F4A9D13499142005C3A83 /* RegexKitLite.h in Headers */,
 				1B7F4AB313499164005C3A83 /* NSArray+activesupport.h in Headers */,
 				1B7F4AB613499164005C3A83 /* NSArray+functional.h in Headers */,
 				1B7F4AB913499164005C3A83 /* NSArray+helpers.h in Headers */,
@@ -699,7 +684,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7F4A9E13499142005C3A83 /* RegexKitLite.m in Sources */,
 				1B7F4AB413499164005C3A83 /* NSArray+activesupport.m in Sources */,
 				1B7F4AB713499164005C3A83 /* NSArray+functional.m in Sources */,
 				1B7F4ABA13499164005C3A83 /* NSArray+helpers.m in Sources */,
