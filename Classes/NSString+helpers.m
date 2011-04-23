@@ -7,7 +7,6 @@
 //
 
 #import "NSString+helpers.h"
-#import "OnigRegexp.h"
 
 @implementation NSString (helpers)
 
@@ -168,6 +167,13 @@
     
     [ret appendString:self];
     return [ret autorelease];
+}
+
+#pragma -
+#pragma Regular Expressions
+
+- (NSString*) gsub:(NSString*)pattern with:(NSString*)replacement {
+    return [self replaceAllByRegexp:pattern with:replacement];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "OnigRegexp.h"
 
 @interface NSString (helpers)
 
@@ -25,5 +25,10 @@
 - (NSString*) reverse;
 - (NSString*) rjust:(int)length;
 - (NSString*) rjust:(int)length withPad:(NSString*)padStr;
+
+#pragma -
+#pragma Regular Expressions
+
+- (NSString*) gsub:(NSString*)pattern with:(NSString*)replacement;
 
 @end

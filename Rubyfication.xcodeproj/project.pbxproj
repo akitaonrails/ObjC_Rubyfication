@@ -7,29 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0A3C1F135D5E830004F4F0 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C06135D5E830004F4F0 /* config.h */; };
-		1B0A3C20135D5E830004F4F0 /* ascii.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C09135D5E830004F4F0 /* ascii.c */; };
-		1B0A3C21135D5E830004F4F0 /* unicode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0A135D5E830004F4F0 /* unicode.c */; };
-		1B0A3C22135D5E830004F4F0 /* utf16_le.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0B135D5E830004F4F0 /* utf16_le.c */; };
-		1B0A3C23135D5E830004F4F0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C0C135D5E830004F4F0 /* oniguruma.h */; };
-		1B0A3C24135D5E830004F4F0 /* regcomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0D135D5E830004F4F0 /* regcomp.c */; };
-		1B0A3C25135D5E830004F4F0 /* regenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0E135D5E830004F4F0 /* regenc.c */; };
-		1B0A3C26135D5E830004F4F0 /* regenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C0F135D5E830004F4F0 /* regenc.h */; };
-		1B0A3C27135D5E830004F4F0 /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C10135D5E830004F4F0 /* regerror.c */; };
-		1B0A3C28135D5E830004F4F0 /* regexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C11135D5E830004F4F0 /* regexec.c */; };
-		1B0A3C29135D5E830004F4F0 /* regext.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C12135D5E830004F4F0 /* regext.c */; };
-		1B0A3C2A135D5E830004F4F0 /* regint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C13135D5E830004F4F0 /* regint.h */; };
-		1B0A3C2B135D5E830004F4F0 /* regparse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C14135D5E830004F4F0 /* regparse.c */; };
-		1B0A3C2C135D5E830004F4F0 /* regparse.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C15135D5E830004F4F0 /* regparse.h */; };
-		1B0A3C2D135D5E830004F4F0 /* regsyntax.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C16135D5E830004F4F0 /* regsyntax.c */; };
-		1B0A3C2E135D5E830004F4F0 /* regtrav.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C17135D5E830004F4F0 /* regtrav.c */; };
-		1B0A3C2F135D5E830004F4F0 /* regversion.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C18135D5E830004F4F0 /* regversion.c */; };
-		1B0A3C30135D5E830004F4F0 /* st.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C19135D5E830004F4F0 /* st.c */; };
-		1B0A3C31135D5E830004F4F0 /* st.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1A135D5E830004F4F0 /* st.h */; };
-		1B0A3C32135D5E830004F4F0 /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */; };
-		1B0A3C33135D5E830004F4F0 /* OnigRegexpUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1C135D5E830004F4F0 /* OnigRegexpUtility.h */; };
-		1B0A3C34135D5E830004F4F0 /* OnigRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */; };
-		1B0A3C35135D5E830004F4F0 /* OnigRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1E135D5E830004F4F0 /* OnigRegexp.h */; };
+		1B0D679D1362810600C183B7 /* OnigRegexpUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1C135D5E830004F4F0 /* OnigRegexpUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B0D679E1362810800C183B7 /* OnigRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B0A3C1E135D5E830004F4F0 /* OnigRegexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B4A93E8136281280070C2F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
+		1B4A93E91362812B0070C2F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A60132B2EF4008D10AA /* CoreGraphics.framework */; };
+		1B4A93EA1362812D0070C2F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A62132B2EF8008D10AA /* UIKit.framework */; };
+		1B4A93EB136281590070C2F2 /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */; };
+		1B4A93EC136281590070C2F2 /* OnigRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */; };
+		1B4A93ED136281590070C2F2 /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA613499163005C3A83 /* NSArray+activesupport.m */; };
+		1B4A93EE136281590070C2F2 /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA813499163005C3A83 /* NSArray+functional.m */; };
+		1B4A93EF136281590070C2F2 /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAA13499163005C3A83 /* NSArray+helpers.m */; };
+		1B4A93F0136281590070C2F2 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAC13499164005C3A83 /* NSDate+helpers.m */; };
+		1B4A93F1136281590070C2F2 /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAE13499164005C3A83 /* NSString+activesupport.m */; };
+		1B4A93F2136281590070C2F2 /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB013499164005C3A83 /* NSString+functional.m */; };
+		1B4A93F3136281590070C2F2 /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB213499164005C3A83 /* NSString+helpers.m */; };
+		1B4A93F41362817D0070C2F2 /* ascii.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C09135D5E830004F4F0 /* ascii.c */; };
+		1B4A93F51362817D0070C2F2 /* unicode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0A135D5E830004F4F0 /* unicode.c */; };
+		1B4A93F61362817D0070C2F2 /* utf16_le.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0B135D5E830004F4F0 /* utf16_le.c */; };
+		1B4A93F71362817D0070C2F2 /* regcomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0D135D5E830004F4F0 /* regcomp.c */; };
+		1B4A93F81362817D0070C2F2 /* regenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0E135D5E830004F4F0 /* regenc.c */; };
+		1B4A93F91362817D0070C2F2 /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C10135D5E830004F4F0 /* regerror.c */; };
+		1B4A93FA1362817D0070C2F2 /* regexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C11135D5E830004F4F0 /* regexec.c */; };
+		1B4A93FB1362817D0070C2F2 /* regext.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C12135D5E830004F4F0 /* regext.c */; };
+		1B4A93FC1362817D0070C2F2 /* regparse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C14135D5E830004F4F0 /* regparse.c */; };
+		1B4A93FD1362817D0070C2F2 /* regsyntax.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C16135D5E830004F4F0 /* regsyntax.c */; };
+		1B4A93FE1362817D0070C2F2 /* regtrav.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C17135D5E830004F4F0 /* regtrav.c */; };
+		1B4A93FF1362817D0070C2F2 /* regversion.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C18135D5E830004F4F0 /* regversion.c */; };
+		1B4A94001362817D0070C2F2 /* st.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C19135D5E830004F4F0 /* st.c */; };
 		1B5261DB12DB3EA20041769A /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616212DB3EA20041769A /* KWAfterAllNode.m */; };
 		1B5261DC12DB3EA20041769A /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616412DB3EA20041769A /* KWAfterEachNode.m */; };
 		1B5261DD12DB3EA20041769A /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52616612DB3EA20041769A /* KWBeBetweenMatcher.m */; };
@@ -90,34 +94,41 @@
 		1B7F4AA213499155005C3A83 /* CollectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4A9F13499155005C3A83 /* CollectionSpec.m */; };
 		1B7F4AA313499155005C3A83 /* DateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA013499155005C3A83 /* DateSpec.m */; };
 		1B7F4AA413499155005C3A83 /* StringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA113499155005C3A83 /* StringSpec.m */; };
-		1B7F4AB313499164005C3A83 /* NSArray+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA513499163005C3A83 /* NSArray+activesupport.h */; };
+		1B7F4AB313499164005C3A83 /* NSArray+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA513499163005C3A83 /* NSArray+activesupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4AB413499164005C3A83 /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA613499163005C3A83 /* NSArray+activesupport.m */; };
-		1B7F4AB513499164005C3A83 /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA613499163005C3A83 /* NSArray+activesupport.m */; };
-		1B7F4AB613499164005C3A83 /* NSArray+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA713499163005C3A83 /* NSArray+functional.h */; };
+		1B7F4AB613499164005C3A83 /* NSArray+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA713499163005C3A83 /* NSArray+functional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4AB713499164005C3A83 /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA813499163005C3A83 /* NSArray+functional.m */; };
-		1B7F4AB813499164005C3A83 /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AA813499163005C3A83 /* NSArray+functional.m */; };
-		1B7F4AB913499164005C3A83 /* NSArray+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA913499163005C3A83 /* NSArray+helpers.h */; };
+		1B7F4AB913499164005C3A83 /* NSArray+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AA913499163005C3A83 /* NSArray+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4ABA13499164005C3A83 /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAA13499163005C3A83 /* NSArray+helpers.m */; };
-		1B7F4ABB13499164005C3A83 /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAA13499163005C3A83 /* NSArray+helpers.m */; };
-		1B7F4ABC13499164005C3A83 /* NSDate+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAB13499164005C3A83 /* NSDate+helpers.h */; };
+		1B7F4ABC13499164005C3A83 /* NSDate+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAB13499164005C3A83 /* NSDate+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4ABD13499164005C3A83 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAC13499164005C3A83 /* NSDate+helpers.m */; };
-		1B7F4ABE13499164005C3A83 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAC13499164005C3A83 /* NSDate+helpers.m */; };
-		1B7F4ABF13499164005C3A83 /* NSString+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAD13499164005C3A83 /* NSString+activesupport.h */; };
+		1B7F4ABF13499164005C3A83 /* NSString+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAD13499164005C3A83 /* NSString+activesupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4AC013499164005C3A83 /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAE13499164005C3A83 /* NSString+activesupport.m */; };
-		1B7F4AC113499164005C3A83 /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AAE13499164005C3A83 /* NSString+activesupport.m */; };
-		1B7F4AC213499164005C3A83 /* NSString+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAF13499164005C3A83 /* NSString+functional.h */; };
+		1B7F4AC213499164005C3A83 /* NSString+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AAF13499164005C3A83 /* NSString+functional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4AC313499164005C3A83 /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB013499164005C3A83 /* NSString+functional.m */; };
-		1B7F4AC413499164005C3A83 /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB013499164005C3A83 /* NSString+functional.m */; };
-		1B7F4AC513499164005C3A83 /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AB113499164005C3A83 /* NSString+helpers.h */; };
+		1B7F4AC513499164005C3A83 /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7F4AB113499164005C3A83 /* NSString+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B7F4AC613499164005C3A83 /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB213499164005C3A83 /* NSString+helpers.m */; };
-		1B7F4AC713499164005C3A83 /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7F4AB213499164005C3A83 /* NSString+helpers.m */; };
 		1B980A55132B29FF008D10AA /* libRubyfication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libRubyfication.a */; };
 		1B980A59132B2B8C008D10AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
 		1B980A61132B2EF4008D10AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A60132B2EF4008D10AA /* CoreGraphics.framework */; };
 		1B980A63132B2EF9008D10AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A62132B2EF8008D10AA /* UIKit.framework */; };
-		1BE997B512F60E0300855F60 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE997B412F60E0300855F60 /* libicucore.A.dylib */; };
+		1BAB5E19135D68190073B28A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
+		1BAB5E22135D68260073B28A /* ascii.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C09135D5E830004F4F0 /* ascii.c */; };
+		1BAB5E23135D68260073B28A /* unicode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0A135D5E830004F4F0 /* unicode.c */; };
+		1BAB5E24135D68260073B28A /* utf16_le.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0B135D5E830004F4F0 /* utf16_le.c */; };
+		1BAB5E26135D68260073B28A /* regcomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0D135D5E830004F4F0 /* regcomp.c */; };
+		1BAB5E27135D68260073B28A /* regenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C0E135D5E830004F4F0 /* regenc.c */; };
+		1BAB5E29135D68260073B28A /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C10135D5E830004F4F0 /* regerror.c */; };
+		1BAB5E2A135D68260073B28A /* regexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C11135D5E830004F4F0 /* regexec.c */; };
+		1BAB5E2B135D68260073B28A /* regext.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C12135D5E830004F4F0 /* regext.c */; };
+		1BAB5E2D135D68260073B28A /* regparse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C14135D5E830004F4F0 /* regparse.c */; };
+		1BAB5E2F135D68260073B28A /* regsyntax.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C16135D5E830004F4F0 /* regsyntax.c */; };
+		1BAB5E30135D68260073B28A /* regtrav.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C17135D5E830004F4F0 /* regtrav.c */; };
+		1BAB5E31135D68260073B28A /* regversion.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C18135D5E830004F4F0 /* regversion.c */; };
+		1BAB5E32135D68260073B28A /* st.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C19135D5E830004F4F0 /* st.c */; };
+		1BAB5E34135D68260073B28A /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1B135D5E830004F4F0 /* OnigRegexpUtility.m */; };
+		1BAB5E36135D68260073B28A /* OnigRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A3C1D135D5E830004F4F0 /* OnigRegexp.m */; };
 		AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Rubyfication_Prefix.pch */; };
-		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +138,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = Rubyfication;
+		};
+		1BAB5E38135D68320073B28A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BAB5E17135D68190073B28A;
+			remoteInfo = CocoaOniguruma;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -302,10 +320,10 @@
 		1B980A58132B2B8C008D10AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B980A60132B2EF4008D10AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1B980A62132B2EF8008D10AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1BE997B412F60E0300855F60 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = usr/lib/libicucore.A.dylib; sourceTree = SDKROOT; };
+		1BAB5E18135D68190073B28A /* libCocoaOniguruma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaOniguruma.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BAB5E1C135D68190073B28A /* CocoaOniguruma-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CocoaOniguruma-Prefix.pch"; sourceTree = "<group>"; };
 		1BE9988112F6265200855F60 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Rubyfication_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rubyfication_Prefix.pch; sourceTree = SOURCE_ROOT; };
-		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libRubyfication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRubyfication.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -321,12 +339,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BAB5E15135D68190073B28A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BAB5E19135D68190073B28A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				1BE997B512F60E0300855F60 /* libicucore.A.dylib in Frameworks */,
+				1B4A93E8136281280070C2F2 /* Foundation.framework in Frameworks */,
+				1B4A93E91362812B0070C2F2 /* CoreGraphics.framework in Frameworks */,
+				1B4A93EA1362812D0070C2F2 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				1B52615112DB3E850041769A /* SpecTests.octest */,
+				1BAB5E18135D68190073B28A /* libCocoaOniguruma.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,11 +377,11 @@
 				1B52615D12DB3EA20041769A /* Kiwi */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
+				1BAB5E1A135D68190073B28A /* CocoaOniguruma */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				D2AAC07E0554694100DB518D /* libRubyfication.a */,
 				1B52615212DB3E850041769A /* SpecTests-Info.plist */,
-				1BE997B412F60E0300855F60 /* libicucore.A.dylib */,
 				1BE9988112F6265200855F60 /* README.textile */,
 			);
 			name = Rubyfication;
@@ -365,7 +393,6 @@
 				1B980A62132B2EF8008D10AA /* UIKit.framework */,
 				1B980A60132B2EF4008D10AA /* CoreGraphics.framework */,
 				1B980A58132B2B8C008D10AA /* Foundation.framework */,
-				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -581,6 +608,22 @@
 			name = Specs;
 			sourceTree = "<group>";
 		};
+		1BAB5E1A135D68190073B28A /* CocoaOniguruma */ = {
+			isa = PBXGroup;
+			children = (
+				1BAB5E1B135D68190073B28A /* Supporting Files */,
+			);
+			path = CocoaOniguruma;
+			sourceTree = "<group>";
+		};
+		1BAB5E1B135D68190073B28A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BAB5E1C135D68190073B28A /* CocoaOniguruma-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,11 +635,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1BAB5E16135D68190073B28A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B0D679D1362810600C183B7 /* OnigRegexpUtility.h in Headers */,
+				1B0D679E1362810800C183B7 /* OnigRegexp.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */,
 				1B7F4AB313499164005C3A83 /* NSArray+activesupport.h in Headers */,
 				1B7F4AB613499164005C3A83 /* NSArray+functional.h in Headers */,
 				1B7F4AB913499164005C3A83 /* NSArray+helpers.h in Headers */,
@@ -604,14 +655,7 @@
 				1B7F4ABF13499164005C3A83 /* NSString+activesupport.h in Headers */,
 				1B7F4AC213499164005C3A83 /* NSString+functional.h in Headers */,
 				1B7F4AC513499164005C3A83 /* NSString+helpers.h in Headers */,
-				1B0A3C1F135D5E830004F4F0 /* config.h in Headers */,
-				1B0A3C23135D5E830004F4F0 /* oniguruma.h in Headers */,
-				1B0A3C26135D5E830004F4F0 /* regenc.h in Headers */,
-				1B0A3C2A135D5E830004F4F0 /* regint.h in Headers */,
-				1B0A3C2C135D5E830004F4F0 /* regparse.h in Headers */,
-				1B0A3C31135D5E830004F4F0 /* st.h in Headers */,
-				1B0A3C33135D5E830004F4F0 /* OnigRegexpUtility.h in Headers */,
-				1B0A3C35135D5E830004F4F0 /* OnigRegexp.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* Rubyfication_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +681,23 @@
 			productReference = 1B52615112DB3E850041769A /* SpecTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		1BAB5E17135D68190073B28A /* CocoaOniguruma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BAB5E1D135D68190073B28A /* Build configuration list for PBXNativeTarget "CocoaOniguruma" */;
+			buildPhases = (
+				1BAB5E16135D68190073B28A /* Headers */,
+				1BAB5E14135D68190073B28A /* Sources */,
+				1BAB5E15135D68190073B28A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CocoaOniguruma;
+			productName = CocoaOniguruma;
+			productReference = 1BAB5E18135D68190073B28A /* libCocoaOniguruma.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D2AAC07D0554694100DB518D /* Rubyfication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Rubyfication" */;
@@ -648,6 +709,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1BAB5E39135D68320073B28A /* PBXTargetDependency */,
 			);
 			name = Rubyfication;
 			productName = Rubyfication;
@@ -679,6 +741,7 @@
 			targets = (
 				D2AAC07D0554694100DB518D /* Rubyfication */,
 				1B52615012DB3E850041769A /* SpecTests */,
+				1BAB5E17135D68190073B28A /* CocoaOniguruma */,
 			);
 		};
 /* End PBXProject section */
@@ -714,6 +777,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4A93F41362817D0070C2F2 /* ascii.c in Sources */,
+				1B4A93F51362817D0070C2F2 /* unicode.c in Sources */,
+				1B4A93F61362817D0070C2F2 /* utf16_le.c in Sources */,
+				1B4A93F71362817D0070C2F2 /* regcomp.c in Sources */,
+				1B4A93F81362817D0070C2F2 /* regenc.c in Sources */,
+				1B4A93F91362817D0070C2F2 /* regerror.c in Sources */,
+				1B4A93FA1362817D0070C2F2 /* regexec.c in Sources */,
+				1B4A93FB1362817D0070C2F2 /* regext.c in Sources */,
+				1B4A93FC1362817D0070C2F2 /* regparse.c in Sources */,
+				1B4A93FD1362817D0070C2F2 /* regsyntax.c in Sources */,
+				1B4A93FE1362817D0070C2F2 /* regtrav.c in Sources */,
+				1B4A93FF1362817D0070C2F2 /* regversion.c in Sources */,
+				1B4A94001362817D0070C2F2 /* st.c in Sources */,
+				1B4A93EB136281590070C2F2 /* OnigRegexpUtility.m in Sources */,
+				1B4A93EC136281590070C2F2 /* OnigRegexp.m in Sources */,
+				1B4A93ED136281590070C2F2 /* NSArray+activesupport.m in Sources */,
+				1B4A93EE136281590070C2F2 /* NSArray+functional.m in Sources */,
+				1B4A93EF136281590070C2F2 /* NSArray+helpers.m in Sources */,
+				1B4A93F0136281590070C2F2 /* NSDate+helpers.m in Sources */,
+				1B4A93F1136281590070C2F2 /* NSString+activesupport.m in Sources */,
+				1B4A93F2136281590070C2F2 /* NSString+functional.m in Sources */,
+				1B4A93F3136281590070C2F2 /* NSString+helpers.m in Sources */,
 				1B5261DB12DB3EA20041769A /* KWAfterAllNode.m in Sources */,
 				1B5261DC12DB3EA20041769A /* KWAfterEachNode.m in Sources */,
 				1B5261DD12DB3EA20041769A /* KWBeBetweenMatcher.m in Sources */,
@@ -774,13 +859,28 @@
 				1B7F4AA213499155005C3A83 /* CollectionSpec.m in Sources */,
 				1B7F4AA313499155005C3A83 /* DateSpec.m in Sources */,
 				1B7F4AA413499155005C3A83 /* StringSpec.m in Sources */,
-				1B7F4AB513499164005C3A83 /* NSArray+activesupport.m in Sources */,
-				1B7F4AB813499164005C3A83 /* NSArray+functional.m in Sources */,
-				1B7F4ABB13499164005C3A83 /* NSArray+helpers.m in Sources */,
-				1B7F4ABE13499164005C3A83 /* NSDate+helpers.m in Sources */,
-				1B7F4AC113499164005C3A83 /* NSString+activesupport.m in Sources */,
-				1B7F4AC413499164005C3A83 /* NSString+functional.m in Sources */,
-				1B7F4AC713499164005C3A83 /* NSString+helpers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BAB5E14135D68190073B28A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BAB5E22135D68260073B28A /* ascii.c in Sources */,
+				1BAB5E23135D68260073B28A /* unicode.c in Sources */,
+				1BAB5E24135D68260073B28A /* utf16_le.c in Sources */,
+				1BAB5E26135D68260073B28A /* regcomp.c in Sources */,
+				1BAB5E27135D68260073B28A /* regenc.c in Sources */,
+				1BAB5E29135D68260073B28A /* regerror.c in Sources */,
+				1BAB5E2A135D68260073B28A /* regexec.c in Sources */,
+				1BAB5E2B135D68260073B28A /* regext.c in Sources */,
+				1BAB5E2D135D68260073B28A /* regparse.c in Sources */,
+				1BAB5E2F135D68260073B28A /* regsyntax.c in Sources */,
+				1BAB5E30135D68260073B28A /* regtrav.c in Sources */,
+				1BAB5E31135D68260073B28A /* regversion.c in Sources */,
+				1BAB5E32135D68260073B28A /* st.c in Sources */,
+				1BAB5E34135D68260073B28A /* OnigRegexpUtility.m in Sources */,
+				1BAB5E36135D68260073B28A /* OnigRegexp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,21 +895,6 @@
 				1B7F4AC013499164005C3A83 /* NSString+activesupport.m in Sources */,
 				1B7F4AC313499164005C3A83 /* NSString+functional.m in Sources */,
 				1B7F4AC613499164005C3A83 /* NSString+helpers.m in Sources */,
-				1B0A3C20135D5E830004F4F0 /* ascii.c in Sources */,
-				1B0A3C21135D5E830004F4F0 /* unicode.c in Sources */,
-				1B0A3C22135D5E830004F4F0 /* utf16_le.c in Sources */,
-				1B0A3C24135D5E830004F4F0 /* regcomp.c in Sources */,
-				1B0A3C25135D5E830004F4F0 /* regenc.c in Sources */,
-				1B0A3C27135D5E830004F4F0 /* regerror.c in Sources */,
-				1B0A3C28135D5E830004F4F0 /* regexec.c in Sources */,
-				1B0A3C29135D5E830004F4F0 /* regext.c in Sources */,
-				1B0A3C2B135D5E830004F4F0 /* regparse.c in Sources */,
-				1B0A3C2D135D5E830004F4F0 /* regsyntax.c in Sources */,
-				1B0A3C2E135D5E830004F4F0 /* regtrav.c in Sources */,
-				1B0A3C2F135D5E830004F4F0 /* regversion.c in Sources */,
-				1B0A3C30135D5E830004F4F0 /* st.c in Sources */,
-				1B0A3C32135D5E830004F4F0 /* OnigRegexpUtility.m in Sources */,
-				1B0A3C34135D5E830004F4F0 /* OnigRegexp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +905,11 @@
 			isa = PBXTargetDependency;
 			target = D2AAC07D0554694100DB518D /* Rubyfication */;
 			targetProxy = 1B980A56132B2B7F008D10AA /* PBXContainerItemProxy */;
+		};
+		1BAB5E39135D68320073B28A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BAB5E17135D68190073B28A /* CocoaOniguruma */;
+			targetProxy = 1BAB5E38135D68320073B28A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -878,6 +968,41 @@
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1BAB5E1E135D68190073B28A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/CocoaOniguruma.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOniguruma/CocoaOniguruma-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				MACH_O_TYPE = mh_bundle;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1BAB5E1F135D68190073B28A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/CocoaOniguruma.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOniguruma/CocoaOniguruma-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				MACH_O_TYPE = mh_bundle;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -952,6 +1077,15 @@
 			buildConfigurations = (
 				1B52615312DB3E850041769A /* Debug */,
 				1B52615412DB3E850041769A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BAB5E1D135D68190073B28A /* Build configuration list for PBXNativeTarget "CocoaOniguruma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BAB5E1E135D68190073B28A /* Debug */,
+				1BAB5E1F135D68190073B28A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

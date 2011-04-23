@@ -82,6 +82,12 @@ describe(@"NSString", ^{
             [[[a rjust:20] should] equal:@"               hello"];
             [[[a rjust:20 withPad:@"1234"] should] equal:@"123412341234123hello"];            
         });
+        
+        context(@"Regular Expressions", ^{
+            it(@"should replace all substrings that match the pattern", ^{
+                [[[@"hello world, heyho!" gsub:@"h\\w+" with:@"hi"] should] equal:@"hi world, hi!"];
+            });
+        });
     });
     
     context(@"ActiveSupport::CoreExt", ^{
