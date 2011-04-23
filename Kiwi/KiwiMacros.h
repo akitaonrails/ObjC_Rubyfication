@@ -12,6 +12,7 @@
 #define KW_THIS_CALLSITE [KWCallSite callSiteWithFilename:@__FILE__ lineNumber:__LINE__]
 #define KW_ADD_EXIST_VERIFIER(expectationType) [self addExistVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE]
 #define KW_ADD_MATCH_VERIFIER(expectationType) [self addMatchVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE]
+#define KW_ADD_ASYNC_VERIFIER(expectationType, timeOut) [self addAsyncVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE timeout:timeOut]
 
 #pragma mark -
 #pragma mark Keywords
@@ -21,6 +22,15 @@
 #define shouldNot attachToVerifier:KW_ADD_MATCH_VERIFIER(KWExpectationTypeShouldNot) verifier:KW_ADD_EXIST_VERIFIER(KWExpectationTypeShould)
 #define shouldBeNil attachToVerifier:KW_ADD_EXIST_VERIFIER(KWExpectationTypeShouldNot)
 #define shouldNotBeNil attachToVerifier:KW_ADD_EXIST_VERIFIER(KWExpectationTypeShould)
+#define shouldEventually attachToVerifier:KW_ADD_ASYNC_VERIFIER(KWExpectationTypeShould, kKW_DEFAULT_PROBE_TIMEOUT)
+#define shouldEventuallyBeforeTimingOutAfter(timeout) attachToVerifier:KW_ADD_ASYNC_VERIFIER(KWExpectationTypeShould, timeout)
+
+// wait for is like a shouldEventually but will not fail if it's never satisfied
+#define waitFor attachToVerifier:KW_ADD_ASYNC_VERIFIER(KWExpectationTypeMaybe, kKW_DEFAULT_PROBE_TIMEOUT)
+
+// used to wrap a pointer to an object that will change in the future (used with shouldEventually)
+#define theObject(objectPtr) [KWFutureObject objectWithObjectPointer:objectPtr]
+#define theReturnValueOfBlock(block) [KWFutureObject objectWithReturnValueOfBlock:block]
 
 #if KW_BLOCKS_ENABLED
     // Kiwi macros used in specs to create example groups. Because these macros

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSString;
 
 @interface NSString (functional)
 

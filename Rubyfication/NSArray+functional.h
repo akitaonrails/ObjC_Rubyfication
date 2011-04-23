@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSArray;
+
 @interface NSArray (functional)
 
 #if defined(NS_BLOCKS_AVAILABLE)

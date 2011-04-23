@@ -94,7 +94,7 @@ describe(@"NSString", ^{
             });
             
             it(@"should replace each substring with the return of the block", ^{
-                [[[@"hello world, heyho!" gsub:@"h\\w+" withBlock:^(id obj) {
+                [[[@"hello world, heyho!" gsub:@"h\\w+" withBlock:^(OnigResult* obj) {
                     return @"foo";
                 }] should] equal:@"foo world, foo!"];
             });

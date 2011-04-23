@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "OnigRegexp.h"
 
+@class NSString;
+
 @interface NSString (helpers)
 
 - (NSString*) concat:(NSString*)anotherString;
@@ -25,9 +27,6 @@
 - (NSString*) reverse;
 - (NSString*) rjust:(int)length;
 - (NSString*) rjust:(int)length withPad:(NSString*)padStr;
-
-#pragma -
-#pragma Regular Expressions
 
 - (NSString*) gsub:(NSString*)pattern with:(id)replacement;
 - (NSString*) gsub:(NSString*)pattern withBlock:(NSString* (^)(OnigResult*))replacement;

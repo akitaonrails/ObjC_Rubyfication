@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSArray;
 
 @interface NSArray (activesupport)
 
