@@ -11,6 +11,8 @@
 
 @implementation NSString (functional)
 
+#if defined(NS_BLOCKS_AVAILABLE)
+
 - (void) eachLine:(void (^) (NSString*))block {
     [self eachLine:@"\n" withBlock:block];
 }
@@ -20,5 +22,7 @@
         block(line);
     }
 }
+
+#endif
 
 @end

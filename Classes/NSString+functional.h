@@ -11,7 +11,11 @@
 
 @interface NSString (functional)
 
+#if defined(NS_BLOCKS_AVAILABLE)
+
 - (void) eachLine:(void (^) (NSString*))block;
 - (void) eachLine:(NSString*)separator withBlock:(void (^) (NSString*))block;
+
+#endif
 
 @end

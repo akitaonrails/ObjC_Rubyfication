@@ -10,6 +10,8 @@
 
 @interface NSArray (functional)
 
+#if defined(NS_BLOCKS_AVAILABLE)
+
 - (void) each:(void (^) (id))block;
 - (NSArray*) map:(id (^) (id))block;
 - (id) inject:(id)initialValue with:(id (^) (id total, id item))block;
@@ -17,4 +19,7 @@
 - (NSArray*) select:(BOOL (^) (id))block;
 - (NSArray*) reject:(BOOL (^) (id))block;
 - (void) reverseEach:(void (^) (id))block;
+
+#endif
+
 @end

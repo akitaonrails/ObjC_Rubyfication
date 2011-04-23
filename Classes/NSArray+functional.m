@@ -11,6 +11,8 @@
 
 @implementation NSArray (functional)
 
+#if defined(NS_BLOCKS_AVAILABLE)
+
 - (void) each:(void (^) (id))block {
     int i = 0;
     for (i = 0; i < [self count]; i ++) {
@@ -66,5 +68,7 @@
         block([self objectAtIndex:i]);
     }
 }
+
+#endif
 
 @end
