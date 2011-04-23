@@ -7,6 +7,7 @@
 //
 
 #import "NSString+helpers.h"
+#import "NSArray+functional.h"
 
 @implementation NSString (helpers)
 
@@ -172,8 +173,19 @@
 #pragma -
 #pragma Regular Expressions
 
-- (NSString*) gsub:(NSString*)pattern with:(NSString*)replacement {
-    return [self replaceAllByRegexp:pattern with:replacement];
+- (NSString*) gsub:(NSString*)pattern with:(id)replacement {
+    if ([replacement isKindOfClass:[NSString class]]) {
+        return [self replaceAllByRegexp:pattern with:replacement];        
+    } else if ([replacement isKindOfClass:[NSArray class]]) {
+        __block int i = -1;
+        return [self replaceAllByRegexp:pattern withBlock:^(id obj) {
+            return [replacement objectAtIndex:(++i)];
+        }];        
+    }
+    return nil;
 }
 
+- (NSString*) gsub:(NSString*)pattern withBlock:(NSString* (^)(OnigResult*))replacement {
+    return [self replaceAllByRegexp:pattern withBlock:replacement];
+}
 @end

@@ -87,6 +87,18 @@ describe(@"NSString", ^{
             it(@"should replace all substrings that match the pattern", ^{
                 [[[@"hello world, heyho!" gsub:@"h\\w+" with:@"hi"] should] equal:@"hi world, hi!"];
             });
+
+            it(@"should replace each substrings with one corresponding replacement in the array", ^{
+                NSArray* replacements = [NSArray arrayWithObjects:@"hi", @"everybody", nil];
+                [[[@"hello world, heyho!" gsub:@"h\\w+" with:replacements] should] equal:@"hi world, everybody!"];
+            });
+            
+            it(@"should replace each substring with the return of the block", ^{
+                [[[@"hello world, heyho!" gsub:@"h\\w+" withBlock:^(id obj) {
+                    return @"foo";
+                }] should] equal:@"foo world, foo!"];
+            });
+            
         });
     });
     

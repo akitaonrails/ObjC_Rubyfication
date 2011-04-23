@@ -29,6 +29,7 @@
 #pragma -
 #pragma Regular Expressions
 
-- (NSString*) gsub:(NSString*)pattern with:(NSString*)replacement;
+- (NSString*) gsub:(NSString*)pattern with:(id)replacement;
+- (NSString*) gsub:(NSString*)pattern withBlock:(NSString* (^)(OnigResult*))replacement;
 
 @end
