@@ -6,6 +6,24 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1BCA387813638F74006E62B1 /* Build & Merge Libraries */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1BCA387913638F74006E62B1 /* Build configuration list for PBXAggregateTarget "Build & Merge Libraries" */;
+			buildPhases = (
+				1BCA388013638F9B006E62B1 /* ShellScript */,
+				1BCA38B4136393A8006E62B1 /* CopyFiles */,
+				1BCA38BF13639416006E62B1 /* ShellScript */,
+			);
+			dependencies = (
+				1BCA387D13638F7C006E62B1 /* PBXTargetDependency */,
+				1BCA387F13638F7E006E62B1 /* PBXTargetDependency */,
+			);
+			name = "Build & Merge Libraries";
+			productName = "Build & Merge Libraries";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1B215E8813636062002111BD /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E6E13636062002111BD /* OnigRegexpUtility.m */; };
 		1B215E8913636062002111BD /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7013636062002111BD /* config.h */; };
@@ -203,6 +221,55 @@
 		1BCA381013637981006E62B1 /* DateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA380113636D5A006E62B1 /* DateSpec.m */; };
 		1BCA382513637C3E006E62B1 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BCA3673136365CC006E62B1 /* libKiwi.a */; };
 		1BCA382713637C46006E62B1 /* libRubyfication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BCA37BB13636C65006E62B1 /* libRubyfication.a */; };
+		1BCA386213638E35006E62B1 /* NSString+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37DE13636C8F006E62B1 /* NSString+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386313638E35006E62B1 /* NSString+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E013636C8F006E62B1 /* NSString+functional.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386413638E35006E62B1 /* NSArray+functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E113636C8F006E62B1 /* NSArray+functional.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386513638E35006E62B1 /* NSDate+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E413636C8F006E62B1 /* NSDate+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386613638E35006E62B1 /* NSString+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E513636C8F006E62B1 /* NSString+activesupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386713638E35006E62B1 /* NSArray+activesupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E613636C8F006E62B1 /* NSArray+activesupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386813638E35006E62B1 /* NSArray+helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BCA37E713636C8F006E62B1 /* NSArray+helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA386A13638E35006E62B1 /* NSString+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37DD13636C8F006E62B1 /* NSString+helpers.m */; };
+		1BCA386B13638E35006E62B1 /* NSString+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37DF13636C8F006E62B1 /* NSString+functional.m */; };
+		1BCA386C13638E35006E62B1 /* NSArray+functional.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37E213636C8F006E62B1 /* NSArray+functional.m */; };
+		1BCA386D13638E35006E62B1 /* NSDate+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37E313636C8F006E62B1 /* NSDate+helpers.m */; };
+		1BCA386E13638E35006E62B1 /* NSString+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37E813636C8F006E62B1 /* NSString+activesupport.m */; };
+		1BCA386F13638E35006E62B1 /* NSArray+helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37E913636C8F006E62B1 /* NSArray+helpers.m */; };
+		1BCA387013638E35006E62B1 /* NSArray+activesupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCA37EA13636C8F006E62B1 /* NSArray+activesupport.m */; };
+		1BCA387213638E35006E62B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
+		1BCA38831363916D006E62B1 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7613636062002111BD /* oniguruma.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA38841363916D006E62B1 /* OnigRegexpUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E8513636062002111BD /* OnigRegexpUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA38851363916D006E62B1 /* OnigRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E8713636062002111BD /* OnigRegexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BCA38861363916D006E62B1 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7013636062002111BD /* config.h */; };
+		1BCA38871363916D006E62B1 /* regenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7913636062002111BD /* regenc.h */; };
+		1BCA38881363916D006E62B1 /* regint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7D13636062002111BD /* regint.h */; };
+		1BCA38891363916D006E62B1 /* regparse.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E7F13636062002111BD /* regparse.h */; };
+		1BCA388A1363916D006E62B1 /* st.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B215E8413636062002111BD /* st.h */; };
+		1BCA388C1363916D006E62B1 /* OnigRegexpUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E6E13636062002111BD /* OnigRegexpUtility.m */; };
+		1BCA388D1363916D006E62B1 /* ascii.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7313636062002111BD /* ascii.c */; };
+		1BCA388E1363916D006E62B1 /* unicode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7413636062002111BD /* unicode.c */; };
+		1BCA388F1363916D006E62B1 /* utf16_le.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7513636062002111BD /* utf16_le.c */; };
+		1BCA38901363916D006E62B1 /* regcomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7713636062002111BD /* regcomp.c */; };
+		1BCA38911363916D006E62B1 /* regenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7813636062002111BD /* regenc.c */; };
+		1BCA38921363916D006E62B1 /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7A13636062002111BD /* regerror.c */; };
+		1BCA38931363916D006E62B1 /* regexec.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7B13636062002111BD /* regexec.c */; };
+		1BCA38941363916D006E62B1 /* regext.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7C13636062002111BD /* regext.c */; };
+		1BCA38951363916D006E62B1 /* regparse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E7E13636062002111BD /* regparse.c */; };
+		1BCA38961363916D006E62B1 /* regsyntax.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E8013636062002111BD /* regsyntax.c */; };
+		1BCA38971363916D006E62B1 /* regtrav.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E8113636062002111BD /* regtrav.c */; };
+		1BCA38981363916D006E62B1 /* regversion.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E8213636062002111BD /* regversion.c */; };
+		1BCA38991363916D006E62B1 /* st.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E8313636062002111BD /* st.c */; };
+		1BCA389A1363916D006E62B1 /* OnigRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B215E8613636062002111BD /* OnigRegexp.m */; };
+		1BCA389C1363916D006E62B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B980A58132B2B8C008D10AA /* Foundation.framework */; };
+		1BCA38A3136391B5006E62B1 /* libCocoaOnigurumaSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BCA38A01363916D006E62B1 /* libCocoaOnigurumaSimulator.a */; };
+		1BCA38B5136393C2006E62B1 /* OnigRegexp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B215E8713636062002111BD /* OnigRegexp.h */; };
+		1BCA38B6136393C4006E62B1 /* OnigRegexpUtility.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B215E8513636062002111BD /* OnigRegexpUtility.h */; };
+		1BCA38B7136393CA006E62B1 /* NSString+helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37DE13636C8F006E62B1 /* NSString+helpers.h */; };
+		1BCA38B8136393CE006E62B1 /* NSString+functional.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E013636C8F006E62B1 /* NSString+functional.h */; };
+		1BCA38B9136393D2006E62B1 /* NSString+activesupport.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E513636C8F006E62B1 /* NSString+activesupport.h */; };
+		1BCA38BA136393D5006E62B1 /* NSArray+helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E713636C8F006E62B1 /* NSArray+helpers.h */; };
+		1BCA38BC136393E5006E62B1 /* NSArray+functional.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E113636C8F006E62B1 /* NSArray+functional.h */; };
+		1BCA38BD136393EA006E62B1 /* NSArray+activesupport.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E613636C8F006E62B1 /* NSArray+activesupport.h */; };
+		1BCA38BE136393ED006E62B1 /* NSDate+helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BCA37E413636C8F006E62B1 /* NSDate+helpers.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,7 +301,49 @@
 			remoteGlobalIDString = 1BCA37BA13636C65006E62B1;
 			remoteInfo = Rubyfication;
 		};
+		1BCA387C13638F7C006E62B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BCA37BA13636C65006E62B1;
+			remoteInfo = Rubyfication;
+		};
+		1BCA387E13638F7E006E62B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BCA385E13638E35006E62B1;
+			remoteInfo = "Rubyfication SIM";
+		};
+		1BCA38A11363918E006E62B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BCA38811363916D006E62B1;
+			remoteInfo = "CocoaOniguruma SIM";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1BCA38B4136393A8006E62B1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${TARGET_BUILD_DIR}/../Rubyfication";
+			dstSubfolderSpec = 0;
+			files = (
+				1BCA38B5136393C2006E62B1 /* OnigRegexp.h in CopyFiles */,
+				1BCA38B6136393C4006E62B1 /* OnigRegexpUtility.h in CopyFiles */,
+				1BCA38B7136393CA006E62B1 /* NSString+helpers.h in CopyFiles */,
+				1BCA38B8136393CE006E62B1 /* NSString+functional.h in CopyFiles */,
+				1BCA38B9136393D2006E62B1 /* NSString+activesupport.h in CopyFiles */,
+				1BCA38BA136393D5006E62B1 /* NSArray+helpers.h in CopyFiles */,
+				1BCA38BC136393E5006E62B1 /* NSArray+functional.h in CopyFiles */,
+				1BCA38BD136393EA006E62B1 /* NSArray+activesupport.h in CopyFiles */,
+				1BCA38BE136393ED006E62B1 /* NSDate+helpers.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1B215E6E13636062002111BD /* OnigRegexpUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnigRegexpUtility.m; sourceTree = "<group>"; };
@@ -436,6 +545,8 @@
 		1BCA37FF13636D5A006E62B1 /* StringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringSpec.m; sourceTree = "<group>"; };
 		1BCA380013636D5A006E62B1 /* CollectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionSpec.m; sourceTree = "<group>"; };
 		1BCA380113636D5A006E62B1 /* DateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSpec.m; sourceTree = "<group>"; };
+		1BCA387713638E35006E62B1 /* libRubyficationSimulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRubyficationSimulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BCA38A01363916D006E62B1 /* libCocoaOnigurumaSimulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaOnigurumaSimulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE9988112F6265200855F60 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -478,6 +589,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BCA387113638E35006E62B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA387213638E35006E62B1 /* Foundation.framework in Frameworks */,
+				1BCA38A3136391B5006E62B1 /* libCocoaOnigurumaSimulator.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BCA389B1363916D006E62B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA389C1363916D006E62B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -488,6 +616,8 @@
 				1BCA3673136365CC006E62B1 /* libKiwi.a */,
 				1BCA37BB13636C65006E62B1 /* libRubyfication.a */,
 				1BCA37C513636C65006E62B1 /* RubyficationTests.octest */,
+				1BCA387713638E35006E62B1 /* libRubyficationSimulator.a */,
+				1BCA38A01363916D006E62B1 /* libCocoaOnigurumaSimulator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -901,6 +1031,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BCA386113638E35006E62B1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA386213638E35006E62B1 /* NSString+helpers.h in Headers */,
+				1BCA386313638E35006E62B1 /* NSString+functional.h in Headers */,
+				1BCA386413638E35006E62B1 /* NSArray+functional.h in Headers */,
+				1BCA386513638E35006E62B1 /* NSDate+helpers.h in Headers */,
+				1BCA386613638E35006E62B1 /* NSString+activesupport.h in Headers */,
+				1BCA386713638E35006E62B1 /* NSArray+activesupport.h in Headers */,
+				1BCA386813638E35006E62B1 /* NSArray+helpers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BCA38821363916D006E62B1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA38831363916D006E62B1 /* oniguruma.h in Headers */,
+				1BCA38841363916D006E62B1 /* OnigRegexpUtility.h in Headers */,
+				1BCA38851363916D006E62B1 /* OnigRegexp.h in Headers */,
+				1BCA38861363916D006E62B1 /* config.h in Headers */,
+				1BCA38871363916D006E62B1 /* regenc.h in Headers */,
+				1BCA38881363916D006E62B1 /* regint.h in Headers */,
+				1BCA38891363916D006E62B1 /* regparse.h in Headers */,
+				1BCA388A1363916D006E62B1 /* st.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -977,6 +1136,41 @@
 			productReference = 1BCA37C513636C65006E62B1 /* RubyficationTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		1BCA385E13638E35006E62B1 /* Rubyfication SIM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BCA387413638E35006E62B1 /* Build configuration list for PBXNativeTarget "Rubyfication SIM" */;
+			buildPhases = (
+				1BCA386113638E35006E62B1 /* Headers */,
+				1BCA386913638E35006E62B1 /* Sources */,
+				1BCA387113638E35006E62B1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BCA38A21363918E006E62B1 /* PBXTargetDependency */,
+			);
+			name = "Rubyfication SIM";
+			productName = Rubyfication;
+			productReference = 1BCA387713638E35006E62B1 /* libRubyficationSimulator.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1BCA38811363916D006E62B1 /* CocoaOniguruma SIM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BCA389D1363916D006E62B1 /* Build configuration list for PBXNativeTarget "CocoaOniguruma SIM" */;
+			buildPhases = (
+				1BCA38821363916D006E62B1 /* Headers */,
+				1BCA388B1363916D006E62B1 /* Sources */,
+				1BCA389B1363916D006E62B1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CocoaOniguruma SIM";
+			productName = CocoaOniguruma;
+			productReference = 1BCA38A01363916D006E62B1 /* libCocoaOnigurumaSimulator.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1005,6 +1199,9 @@
 				1BCA3672136365CC006E62B1 /* Kiwi */,
 				1BCA37BA13636C65006E62B1 /* Rubyfication */,
 				1BCA37C413636C65006E62B1 /* RubyficationTests */,
+				1BCA38811363916D006E62B1 /* CocoaOniguruma SIM */,
+				1BCA385E13638E35006E62B1 /* Rubyfication SIM */,
+				1BCA387813638F74006E62B1 /* Build & Merge Libraries */,
 			);
 		};
 /* End PBXProject section */
@@ -1034,6 +1231,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		1BCA388013638F9B006E62B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# make a new output folder\nmkdir -p ${TARGET_BUILD_DIR}/../Rubyfication\n\n# combine lib files for various platforms into one\nlipo -create \"${TARGET_BUILD_DIR}/../Debug-iphoneos/libRubyfication.a\" \"${TARGET_BUILD_DIR}/../Debug-iphonesimulator/libRubyfication.a\" -output \"${TARGET_BUILD_DIR}/../Rubyfication/libRubyfication-${BUILD_STYLE}.a\"";
+		};
+		1BCA38BF13639416006E62B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto -c -k --keepParent \"${TARGET_BUILD_DIR}/../Rubyfication\" \"${TARGET_BUILD_DIR}/../Rubyfication.zip\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1157,6 +1380,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BCA386913638E35006E62B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA386A13638E35006E62B1 /* NSString+helpers.m in Sources */,
+				1BCA386B13638E35006E62B1 /* NSString+functional.m in Sources */,
+				1BCA386C13638E35006E62B1 /* NSArray+functional.m in Sources */,
+				1BCA386D13638E35006E62B1 /* NSDate+helpers.m in Sources */,
+				1BCA386E13638E35006E62B1 /* NSString+activesupport.m in Sources */,
+				1BCA386F13638E35006E62B1 /* NSArray+helpers.m in Sources */,
+				1BCA387013638E35006E62B1 /* NSArray+activesupport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BCA388B1363916D006E62B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BCA388C1363916D006E62B1 /* OnigRegexpUtility.m in Sources */,
+				1BCA388D1363916D006E62B1 /* ascii.c in Sources */,
+				1BCA388E1363916D006E62B1 /* unicode.c in Sources */,
+				1BCA388F1363916D006E62B1 /* utf16_le.c in Sources */,
+				1BCA38901363916D006E62B1 /* regcomp.c in Sources */,
+				1BCA38911363916D006E62B1 /* regenc.c in Sources */,
+				1BCA38921363916D006E62B1 /* regerror.c in Sources */,
+				1BCA38931363916D006E62B1 /* regexec.c in Sources */,
+				1BCA38941363916D006E62B1 /* regext.c in Sources */,
+				1BCA38951363916D006E62B1 /* regparse.c in Sources */,
+				1BCA38961363916D006E62B1 /* regsyntax.c in Sources */,
+				1BCA38971363916D006E62B1 /* regtrav.c in Sources */,
+				1BCA38981363916D006E62B1 /* regversion.c in Sources */,
+				1BCA38991363916D006E62B1 /* st.c in Sources */,
+				1BCA389A1363916D006E62B1 /* OnigRegexp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1179,6 +1438,21 @@
 			isa = PBXTargetDependency;
 			target = 1BCA37BA13636C65006E62B1 /* Rubyfication */;
 			targetProxy = 1BCA382313637C32006E62B1 /* PBXContainerItemProxy */;
+		};
+		1BCA387D13638F7C006E62B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BCA37BA13636C65006E62B1 /* Rubyfication */;
+			targetProxy = 1BCA387C13638F7C006E62B1 /* PBXContainerItemProxy */;
+		};
+		1BCA387F13638F7E006E62B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BCA385E13638E35006E62B1 /* Rubyfication SIM */;
+			targetProxy = 1BCA387E13638F7E006E62B1 /* PBXContainerItemProxy */;
+		};
+		1BCA38A21363918E006E62B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BCA38811363916D006E62B1 /* CocoaOniguruma SIM */;
+			targetProxy = 1BCA38A11363918E006E62B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1294,6 +1568,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1316,6 +1591,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -1380,6 +1656,107 @@
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		1BCA387513638E35006E62B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/Rubyfication.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"${DEVELOPER_LIBRARY_DIR}/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rubyfication/Rubyfication-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = RubyficationSimulator;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1BCA387613638E35006E62B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/Rubyfication.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"${DEVELOPER_LIBRARY_DIR}/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rubyfication/Rubyfication-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = RubyficationSimulator;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1BCA387A13638F74006E62B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1BCA387B13638F74006E62B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1BCA389E1363916D006E62B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/CocoaOniguruma.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOniguruma/CocoaOniguruma-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = CocoaOnigurumaSimulator;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1BCA389F1363916D006E62B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/CocoaOniguruma.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOniguruma/CocoaOniguruma-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = CocoaOnigurumaSimulator;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1471,6 +1848,31 @@
 				1BCA37DC13636C65006E62B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+		};
+		1BCA387413638E35006E62B1 /* Build configuration list for PBXNativeTarget "Rubyfication SIM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BCA387513638E35006E62B1 /* Debug */,
+				1BCA387613638E35006E62B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1BCA387913638F74006E62B1 /* Build configuration list for PBXAggregateTarget "Build & Merge Libraries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BCA387A13638F74006E62B1 /* Debug */,
+				1BCA387B13638F74006E62B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1BCA389D1363916D006E62B1 /* Build configuration list for PBXNativeTarget "CocoaOniguruma SIM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BCA389E1363916D006E62B1 /* Debug */,
+				1BCA389F1363916D006E62B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Rubyfication" */ = {
 			isa = XCConfigurationList;

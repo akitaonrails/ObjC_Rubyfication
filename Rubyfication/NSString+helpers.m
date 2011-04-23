@@ -178,8 +178,8 @@
         return [self replaceAllByRegexp:pattern with:replacement];        
     } else if ([replacement isKindOfClass:[NSArray class]]) {
         __block int i = -1;
-        return [self replaceAllByRegexp:pattern withBlock:^(id obj) {
-            return [replacement objectAtIndex:(++i)];
+        return [self replaceAllByRegexp:pattern withBlock:^(OnigResult* obj) {
+            return (NSString*)[replacement objectAtIndex:(++i)];
         }];        
     }
     return nil;
