@@ -54,7 +54,7 @@
     if (self.count == 1)
         return @"1 item";
     else
-        return [NSString stringWithFormat:@"%u items", self.count];
+        return [NSString stringWithFormat:@"%u items", (unsigned)self.count];
 }
 
 - (NSString *)failureMessageForShould {
@@ -63,6 +63,11 @@
 
 - (NSString *)failureMessageForShouldNot {
     return @"expected subject not to be empty";
+}
+
+- (NSString *)description
+{
+  return @"be empty";
 }
 
 #pragma mark -

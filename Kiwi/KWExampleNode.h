@@ -6,8 +6,7 @@
 
 #import "KiwiConfiguration.h"
 
-#if KW_BLOCKS_ENABLED
-
+@class KWContextNode;
 @protocol KWExampleNodeVisitor;
 
 @protocol KWExampleNode<NSObject>
@@ -17,6 +16,8 @@
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor;
 
-@end
+@optional
 
-#endif
+- (NSArray *)contextStack;
+
+@end

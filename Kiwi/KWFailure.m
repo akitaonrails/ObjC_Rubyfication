@@ -25,7 +25,7 @@
 - (id)initWithCallSite:(KWCallSite *)aCallSite format:(NSString *)format, ... {
     va_list argumentList;
     va_start(argumentList, format);
-    NSString *aMessage = [[NSString alloc] initWithFormat:format arguments:argumentList];
+    NSString *aMessage = [[[NSString alloc] initWithFormat:format arguments:argumentList] autorelease];
     return [self initWithCallSite:aCallSite message:aMessage];
 }
 
@@ -56,7 +56,7 @@
 #pragma mark Getting Exception Representations
 
 - (NSException *)exceptionValue {
-    NSNumber *lineNumber = [NSNumber numberWithUnsignedInt:self.callSite.lineNumber];
+    NSNumber *lineNumber = [NSNumber numberWithUnsignedInteger:self.callSite.lineNumber];
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.callSite.filename, SenTestFilenameKey,
                                                                         lineNumber, SenTestLineNumberKey, nil];
     return [NSException exceptionWithName:@"KWFailureException" reason:message userInfo:userInfo];

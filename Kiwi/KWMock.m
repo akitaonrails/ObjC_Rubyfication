@@ -5,7 +5,7 @@
 //
 
 #import "KWMock.h"
-#import </usr/include/objc/runtime.h>
+#import <objc/runtime.h>
 #import "KWFormatter.h"
 #import "KWMessagePattern.h"
 #import "KWMessageSpying.h"
@@ -13,11 +13,14 @@
 #import "KWStub.h"
 #import "KWWorkarounds.h"
 #import "NSInvocation+KiwiAdditions.h"
+#import "KWCaptureSpy.h"
 
 static NSString * const ExpectOrStubTagKey = @"ExpectOrStubTagKey";
 static NSString * const StubTag = @"StubTag";
 static NSString * const ExpectTag = @"ExpectTag";
 static NSString * const StubValueKey = @"StubValueKey";
+static NSString * const StubSecondValueKey = @"StubSecondValueKey";
+static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTimesKey";
 
 @interface KWMock()
 
@@ -52,16 +55,16 @@ static NSString * const StubValueKey = @"StubValueKey";
         KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
         [self expectMessagePattern:messagePattern];
         NSInvocation *invocation = [NSInvocation invocationWithTarget:self selector:_cmd];
-        
+
         if ([self processReceivedInvocation:invocation]) {
             id result = nil;
             [invocation getReturnValue:&result];
             return result;
         } else {
             return self;
-        }        
+        }
     }
-    
+
     return [self initAsNullMock:NO withName:nil forClass:nil protocol:nil];
 }
 
@@ -168,28 +171,28 @@ static NSString * const StubValueKey = @"StubValueKey";
 - (NSSet *)mockedProtocolTransitiveClosureSet {
     if (self.mockedProtocol == nil)
         return nil;
-    
+
     NSMutableSet *protocolSet = [NSMutableSet set];
     NSMutableArray *protocolQueue = [NSMutableArray array];
     [protocolQueue addObject:self.mockedProtocol];
-    
+
     do {
         Protocol *protocol = [protocolQueue lastObject];
         [protocolSet addObject:protocol];
         [protocolQueue removeLastObject];
-        
+
         unsigned int count = 0;
-        Protocol **protocols = protocol_copyProtocolList(protocol, &count);
-        
+        Protocol **protocols = (Protocol **)protocol_copyProtocolList(protocol, &count);
+
         if (count == 0)
             continue;
-        
+
         for (unsigned int i = 0; i < count; ++i)
             [protocolQueue addObject:protocols[i]];
-        
+
         free(protocols);
     } while ([protocolQueue count] != 0);
-    
+
     return protocolSet;
 }
 
@@ -199,7 +202,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 - (void)removeStubWithMessagePattern:(KWMessagePattern *)messagePattern {
     NSUInteger stubCount = [self.stubs count];
 
-    for (int i = 0; i < stubCount; ++i) {
+    for (NSUInteger i = 0; i < stubCount; ++i) {
         KWStub *stub = [self.stubs objectAtIndex:i];
 
         if ([stub.messagePattern isEqualToMessagePattern:messagePattern]) {
@@ -244,10 +247,22 @@ static NSString * const StubValueKey = @"StubValueKey";
     return [KWInvocationCapturer invocationCapturerWithDelegate:self userInfo:userInfo];
 }
 
+- (id)stubAndReturn:(id)aValue times:(id)times afterThatReturn:(id)aSecondValue {
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:StubTag, ExpectOrStubTagKey, aValue, StubValueKey, times, ChangeStubValueAfterTimesKey, aSecondValue, StubSecondValueKey, nil];
+    return [KWInvocationCapturer invocationCapturerWithDelegate:self userInfo:userInfo];
+}
+
 - (void)stubMessagePattern:(KWMessagePattern *)aMessagePattern andReturn:(id)aValue {
     [self expectMessagePattern:aMessagePattern];
     [self removeStubWithMessagePattern:aMessagePattern];
     KWStub *stub = [KWStub stubWithMessagePattern:aMessagePattern value:aValue];
+    [self.stubs addObject:stub];
+}
+
+- (void)stubMessagePattern:(KWMessagePattern *)aMessagePattern andReturn:(id)aValue times:(id)times afterThatReturn:(id)aSecondValue {   
+    [self expectMessagePattern:aMessagePattern];
+    [self removeStubWithMessagePattern:aMessagePattern];
+    KWStub *stub = [KWStub stubWithMessagePattern:aMessagePattern value:aValue times:times afterThatReturn:aSecondValue];
     [self.stubs addObject:stub];
 }
 
@@ -257,6 +272,12 @@ static NSString * const StubValueKey = @"StubValueKey";
 
 #pragma mark -
 #pragma mark Spying on Messages
+
+- (KWCaptureSpy *)captureArgument:(SEL)selector atIndex:(NSUInteger)index {
+    KWCaptureSpy *spy = [[[KWCaptureSpy alloc] initWithArgumentIndex:index] autorelease];
+    [self addMessageSpy:spy forMessagePattern:[KWMessagePattern messagePatternWithSelector:selector]];
+    return  spy;
+}
 
 - (void)addMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern {
     [self expectMessagePattern:aMessagePattern];
@@ -314,10 +335,15 @@ static NSString * const StubValueKey = @"StubValueKey";
 - (void)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer didCaptureInvocation:(NSInvocation *)anInvocation {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternFromInvocation:anInvocation];
     NSString *tag = [anInvocationCapturer.userInfo objectForKey:ExpectOrStubTagKey];
-
     if ([tag isEqualToString:StubTag]) {
         id value = [anInvocationCapturer.userInfo objectForKey:StubValueKey];
-        [self stubMessagePattern:messagePattern andReturn:value];
+        if (![anInvocationCapturer.userInfo objectForKey:StubSecondValueKey]) {
+            [self stubMessagePattern:messagePattern andReturn:value];
+        } else {
+            id times = [anInvocationCapturer.userInfo objectForKey:ChangeStubValueAfterTimesKey];
+            id secondValue = [anInvocationCapturer.userInfo objectForKey:StubSecondValueKey];
+            [self stubMessagePattern:messagePattern andReturn:value times:times afterThatReturn:secondValue];
+        }
     } else {
         [self expectMessagePattern:messagePattern];
     }
@@ -333,50 +359,50 @@ static NSString * const StubValueKey = @"StubValueKey";
         return [NSString stringWithFormat:@"mock \"%@\"", self.name];
 }
 
-- (BOOL)processReceivedInvocation:(NSInvocation *)invocation {  
+- (BOOL)processReceivedInvocation:(NSInvocation *)invocation {
     for (KWMessagePattern *messagePattern in self.messageSpies) {
         if ([messagePattern matchesInvocation:invocation]) {
             NSArray *spies = [self.messageSpies objectForKey:messagePattern];
-            
+
             for (NSValue *spyWrapper in spies) {
                 id spy = [spyWrapper nonretainedObjectValue];
                 [spy object:self didReceiveInvocation:invocation];
             }
         }
     }
-    
+
     for (KWStub *stub in self.stubs) {
         if ([stub processInvocation:invocation])
             return YES;
     }
-    
+
     return NO;
 }
 
 - (NSMethodSignature *)mockedProtocolMethodSignatureForSelector:(SEL)aSelector {
     NSSet *protocols = [self mockedProtocolTransitiveClosureSet];
-    
+
     for (Protocol *protocol in protocols) {
         struct objc_method_description description = protocol_getMethodDescription(protocol, aSelector, NO, YES);
-        
+
         if (description.types == nil)
             description = protocol_getMethodDescription(protocol, aSelector, YES, YES);
-        
+
         if (description.types != nil)
             return [NSMethodSignature signatureWithObjCTypes:description.types];
     }
-    
+
     return nil;
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
     NSMethodSignature *methodSignature = [self.mockedClass instanceMethodSignatureForSelector:aSelector];
-    
+
     if (methodSignature != nil)
         return methodSignature;
-    
+
     methodSignature = [self mockedProtocolMethodSignatureForSelector:aSelector];
-    
+
     if (methodSignature != nil)
         return methodSignature;
 
@@ -391,7 +417,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 
     if ([self processReceivedInvocation:anInvocation])
         return;
-    
+
     if (self.isNullMock)
         return;
 
@@ -399,7 +425,7 @@ static NSString * const StubValueKey = @"StubValueKey";
         if ([expectedMessagePattern matchesInvocation:anInvocation])
             return;
     }
-    
+
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternFromInvocation:anInvocation];
     [NSException raise:@"KWMockException" format:@"%@ received unexpected message -%@",
                                                  [self namePhrase],
@@ -438,24 +464,24 @@ static NSString * const StubValueKey = @"StubValueKey";
 
 - (BOOL)mockedProtocolRespondsToSelector:(SEL)aSelector {
     NSSet *protocols = [self mockedProtocolTransitiveClosureSet];
-    
+
     for (Protocol *protocol in protocols) {
         struct objc_method_description description = protocol_getMethodDescription(protocol, aSelector, NO, YES);
-        
+
         if (description.types == nil)
             description = protocol_getMethodDescription(protocol, aSelector, YES, YES);
-        
+
         if (description.types != nil)
             return YES;
     }
-    
-    return NO;    
+
+    return NO;
 }
 
 - (BOOL)mockedProtocolConformsToProtocol:(Protocol *)aProtocol {
     if (self.mockedProtocol == nil)
         return NO;
-    
+
     return protocol_isEqual(self.mockedProtocol, aProtocol) || protocol_conformsToProtocol(self.mockedProtocol, aProtocol);
 }
 
@@ -486,7 +512,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
     [self expectMessagePattern:messagePattern];
     NSInvocation *invocation = [NSInvocation invocationWithTarget:self selector:_cmd messageArguments:&anObject];
-    
+
     if ([self processReceivedInvocation:invocation]) {
         BOOL result = NO;
         [invocation getReturnValue:&result];
@@ -514,7 +540,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
     [self expectMessagePattern:messagePattern];
     NSInvocation *invocation = [NSInvocation invocationWithTarget:self selector:_cmd];
-    
+
     if ([self processReceivedInvocation:invocation]) {
         NSString *result = nil;
         [invocation getReturnValue:&result];
@@ -528,7 +554,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
     [self expectMessagePattern:messagePattern];
     NSInvocation *invocation = [NSInvocation invocationWithTarget:self selector:_cmd];
-    
+
     if ([self processReceivedInvocation:invocation]) {
         id result = nil;
         [invocation getReturnValue:&result];
@@ -542,7 +568,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
     [self expectMessagePattern:messagePattern];
     NSInvocation *invocation = [NSInvocation invocationWithTarget:self selector:_cmd];
-    
+
     if ([self processReceivedInvocation:invocation]) {
         id result = nil;
         [invocation getReturnValue:&result];

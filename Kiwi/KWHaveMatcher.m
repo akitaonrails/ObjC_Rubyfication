@@ -62,15 +62,15 @@ static NSString * const CountKey = @"CountKey";
 - (id)targetObject {
     if (self.invocation == nil)
         return self.subject;
-    
+
     SEL selector = [self.invocation selector];
-    
+
     if ([self.subject respondsToSelector:selector]) {
         NSMethodSignature *signature = [self.subject methodSignatureForSelector:selector];
-        
+
         if (!KWObjCTypeIsObject([signature methodReturnType]))
             [NSException raise:@"KWMatcherEception" format:@"a valid collection was not specified"];
-        
+
         id object = nil;
         [self.invocation invokeWithTarget:self.subject];
         [self.invocation getReturnValue:&object];
@@ -84,14 +84,14 @@ static NSString * const CountKey = @"CountKey";
 
 - (BOOL)evaluate {
     id targetObject = [self targetObject];
-    
+
     if ([targetObject respondsToSelector:@selector(count)])
         self.actualCount = [targetObject count];
     else if ([targetObject respondsToSelector:@selector(length)])
         self.actualCount = [targetObject length];
     else
         self.actualCount = 0;
-    
+
     switch (self.countType) {
     case KWCountTypeExact:
         return self.actualCount == self.count;
@@ -100,7 +100,7 @@ static NSString * const CountKey = @"CountKey";
     case KWCountTypeAtMost:
         return self.actualCount <= self.count;
     }
-    
+
     assert(0 && "should never reach here");
     return NO;
 }
@@ -117,7 +117,7 @@ static NSString * const CountKey = @"CountKey";
         case KWCountTypeAtMost:
             return @"have at most";
     }
-    
+
     assert(0 && "should never reach here");
     return nil;
 }
@@ -133,13 +133,13 @@ static NSString * const CountKey = @"CountKey";
     if (self.actualCount == 1)
         return @"1 item";
     else
-        return [NSString stringWithFormat:@"%u items", self.actualCount];
+        return [NSString stringWithFormat:@"%u items", (unsigned)self.actualCount];
 }
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to %@ %u %@, got %@",
                                       [self verbPhrase],
-                                      self.count,
+                                      (unsigned)self.count,
                                       [self itemPhrase],
                                       [self actualCountPhrase]];
 }
@@ -147,8 +147,16 @@ static NSString * const CountKey = @"CountKey";
 - (NSString *)failureMessageForShouldNot {
     return [NSString stringWithFormat:@"expected subject not to %@ %u %@",
                                       [self verbPhrase],
-                                      self.count,
+                                      (unsigned)self.count,
                                       [self itemPhrase]];
+}
+
+#pragma mark -
+#pragma mark Description
+
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"%@ %u %@", [self verbPhrase], (unsigned)self.count, [self itemPhrase]];
 }
 
 #pragma mark -
@@ -192,10 +200,10 @@ static NSString * const CountKey = @"CountKey";
 
 + (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector {
     KWMatchVerifier *verifier = [anInvocationCapturer.userInfo objectForKey:MatchVerifierKey];
-    
+
     if ([verifier.subject respondsToSelector:aSelector])
         return [verifier.subject methodSignatureForSelector:aSelector];
-    
+
     // Arbitrary selectors are allowed as expectation expression terminals when
     // the subject itself is a collection, so return a dummy method signature.
     NSString *encoding = KWEncodingForVoidMethod();
@@ -205,9 +213,9 @@ static NSString * const CountKey = @"CountKey";
 + (void)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer didCaptureInvocation:(NSInvocation *)anInvocation {
     NSDictionary *userInfo = anInvocationCapturer.userInfo;
     id verifier = [userInfo objectForKey:MatchVerifierKey];
-    KWCountType countType = [[userInfo objectForKey:CountTypeKey] unsignedIntValue];
-    KWCountType count = [[userInfo objectForKey:CountKey] unsignedIntValue];
-    
+    KWCountType countType = [[userInfo objectForKey:CountTypeKey] unsignedIntegerValue];
+    NSUInteger count = [[userInfo objectForKey:CountKey] unsignedIntegerValue];
+
     switch (countType) {
         case KWCountTypeExact:
             [verifier have:count itemsForInvocation:anInvocation];
@@ -232,8 +240,8 @@ static NSString * const CountKey = @"CountKey";
 
 - (NSDictionary *)userInfoForHaveMatcherWithCountType:(KWCountType)aCountType count:(NSUInteger)aCount {
     return [NSDictionary dictionaryWithObjectsAndKeys:self, MatchVerifierKey,
-                                                      [NSNumber numberWithUnsignedInt:aCountType], CountTypeKey,
-                                                      [NSNumber numberWithUnsignedInt:aCount], CountKey, nil];
+                                                      [NSNumber numberWithUnsignedInteger:aCountType], CountTypeKey,
+                                                      [NSNumber numberWithUnsignedInteger:aCount], CountKey, nil];
 }
 
 - (id)have:(NSUInteger)aCount {

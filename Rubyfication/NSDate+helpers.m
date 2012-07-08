@@ -61,7 +61,7 @@
     } else {
         [inputFormatter setDateFormat:@"yyyy-MM-dd"];
     }
-    
+    [inputFormatter autorelease];
     return [inputFormatter dateFromString:date];
 }
 

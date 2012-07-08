@@ -5,324 +5,141 @@
 //
 
 #import "KWSpec.h"
-#import </usr/include/objc/runtime.h>
-#import "KWAfterAllNode.h"
-#import "KWAfterEachNode.h"
-#import "KWBeforeAllNode.h"
-#import "KWBeforeEachNode.h"
-#import "KWContextNode.h"
+#import <objc/runtime.h>
+#import "KWExample.h"
 #import "KWExampleGroupBuilder.h"
-#import "KWExampleNode.h"
-#import "KWExistVerifier.h"
-#import "KWFailure.h"
 #import "KWIntercept.h"
-#import "KWItNode.h"
-#import "KWMatchVerifier.h"
-#import "KWAsyncVerifier.h"
-#import "KWMatcherFactory.h"
 #import "KWObjCUtilities.h"
-#import "KWRegisterMatchersNode.h"
 #import "KWStringUtilities.h"
-#import "KWVerifying.h"
-#import "KWWorkarounds.h"
 #import "NSMethodSignature+KiwiAdditions.h"
+#import "KWFailure.h"
+#import "KWExampleSuite.h"
 
-#if KW_BLOCKS_ENABLED
 
 @interface KWSpec()
 
 #pragma mark -
 #pragma mark Properties
 
-@property (nonatomic, readonly) KWMatcherFactory *matcherFactory;
-@property (nonatomic, readonly) NSMutableArray *verifiers;
-@property (nonatomic, readonly) NSMutableArray *exampleNodeStack;
+@property (nonatomic, retain) KWExample *example;
 
 @end
 
 @implementation KWSpec
 
-#pragma mark -
-#pragma mark Initializing
+@synthesize example;
 
-// Initializer used by the SenTestingKit test suite to initialize a test case
-// for each test invocation returned in +testInvocations.
-- (id)initWithInvocation:(NSInvocation *)anInvocation {
-    if ((self = [super initWithInvocation:anInvocation])) {
-        matcherFactory = [[KWMatcherFactory alloc] init];
-        verifiers = [[NSMutableArray alloc] init];
-        exampleNodeStack = [[NSMutableArray alloc] init];
-    }
-    
-    return self;
-}
-
-- (void)dealloc {
-    [matcherFactory release];
-    [verifiers release];
-    [exampleNodeStack release];
+- (void)dealloc 
+{
+    [example release];
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark Properties
+/* This method is only implemented by sub-classes */
 
-@synthesize verifiers;
-@synthesize matcherFactory;
-@synthesize exampleNodeStack;
++ (void)buildExampleGroups {}
 
-#pragma mark -
-#pragma mark Configuring Spec Environments
+/* Reported by XCode SenTestingKit Runner before and after invocation of the test
+   Use camel case to make method friendly names from example description
+ */
 
-- (void)configureEnvironment {
-    [self.matcherFactory registerMatcherClassesWithNamespacePrefix:@"KW"];
-}
-
-- (void)cleanupEnvironment {
-}
-
-#pragma mark -
-#pragma mark Adding Verifiers
-
-- (id)addVerifier:(id<KWVerifying>)aVerifier {
-    if (![self.verifiers containsObject:aVerifier])
-        [self.verifiers addObject:aVerifier];
+- (NSString *)description
+{
+    KWExample *currentExample = self.example ? self.example : [[self invocation] kw_example];
+    NSString *name = [currentExample descriptionWithContext];
     
-    return aVerifier;
-}
-
-- (id)addExistVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite {
-    id verifier = [KWExistVerifier existVerifierWithExpectationType:anExpectationType callSite:aCallSite reporter:self];
-    [self addVerifier:verifier];
-    return verifier;
-}
-
-- (id)addMatchVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite {
-    id verifier = [KWMatchVerifier matchVerifierWithExpectationType:anExpectationType callSite:aCallSite matcherFactory:self.matcherFactory reporter:self];
-    [self addVerifier:verifier];
-    return verifier;
-}
-
-- (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSInteger)timeout {
-    id verifier = [KWAsyncVerifier asyncVerifierWithExpectationType:anExpectationType callSite:aCallSite matcherFactory:self.matcherFactory reporter:self probeTimeout:timeout];
-    [self addVerifier:verifier];
-    return verifier;
-}
-
-#pragma mark -
-#pragma mark Building Example Groups
-
-- (void)buildExampleGroups {
-}
-
-#pragma mark -
-#pragma mark Reporting Failures
-
-- (NSString *)descriptionForExampleContext {
-    NSMutableString *description = [NSMutableString string];
-    
-    for (id<KWExampleNode> node in self.exampleNodeStack) {
-        NSString *nodeDescription = [node description];
-        
-        if (nodeDescription != nil)
-            [description appendFormat:@"%@ ", nodeDescription];
+    // CamelCase the string
+    NSArray *words = [name componentsSeparatedByString:@" "];
+    name = @"";
+    for (NSString *word in words) {
+        if ([word length] < 1)
+        {
+            continue;
+        }
+        name = [name stringByAppendingString:[[word substringToIndex:1] uppercaseString]];
+        name = [name stringByAppendingString:[word substringFromIndex:1]];
     }
     
-    // Remove trailing space
-    if ([description length] > 0)
-        [description deleteCharactersInRange:NSMakeRange([description length] - 1, 1)];
+    // Replace the commas with underscores to separate the levels of context
+    name = [name stringByReplacingOccurrencesOfString:@"," withString:@"_"];
     
-    return description;
-}
+    // Strip out characters not legal in function names
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^a-zA-Z0-9_]*" options:0 error:&error];
+    name = [regex stringByReplacingMatchesInString:name options:0 range:NSMakeRange(0, name.length) withTemplate:@""];
 
-- (KWFailure *)outputReadyFailureWithFailure:(KWFailure *)aFailure {
-    NSString *annotatedFailureMessage = [NSString stringWithFormat:@"\"%@\" FAILED, %@",
-                                                                   [self descriptionForExampleContext],
-                                                                    aFailure.message];
-    
-#if TARGET_IPHONE_SIMULATOR
-    // \uff1a is the unicode for a fill width colon, as opposed to a regular 
-    // colon character (':'). This escape is performed so that Xcode doesn't
-    // truncate the error output in the build results window, which is running
-    // build time specs.
-    annotatedFailureMessage = [annotatedFailureMessage stringByReplacingOccurrencesOfString:@":" withString:@"\uff1a"];
-#endif // #if TARGET_IPHONE_SIMULATOR
-    
-    return [KWFailure failureWithCallSite:aFailure.callSite message:annotatedFailureMessage];
-}
-
-- (void)reportFailure:(KWFailure *)aFailure; {
-    KWFailure *outputReadyFailure = [self outputReadyFailureWithFailure:aFailure];
-    [self failWithException:[outputReadyFailure exceptionValue]];
+    return [NSString stringWithFormat:@"-[%@ %@]", NSStringFromClass([self class]), name];
 }
 
 #pragma mark -
 #pragma mark Getting Invocations
 
-// Called by the SenTestingKit test suite to get an array of invocations that
-// should be run on instances of test cases.
-+ (NSArray *)testInvocations {
+/* Called by the SenTestingKit test suite to get an array of invocations that
+   should be run on instances of test cases. */
+
++ (NSArray *)testInvocations 
+{
     SEL selector = @selector(buildExampleGroups);
-    
-    // Only return invocation if the receiver is a concrete spec that has
-    // overridden -buildExampleGroups.
-    if ([self instanceMethodForSelector:selector] == [KWSpec instanceMethodForSelector:selector])
+
+    // Only return invocation if the receiver is a concrete spec that has overridden -buildExampleGroups.
+    if ([self methodForSelector:selector] == [KWSpec methodForSelector:selector])
         return nil;
-    
-    // Add a single invocation for -runSpec.
-    NSString *encoding = KWEncodingForVoidMethod();
-    NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:[encoding UTF8String]];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    [invocation setSelector:@selector(runSpec)];
-    return [NSArray arrayWithObject:invocation];
-}
 
-#pragma mark -
-#pragma mark Visiting Nodes
-
-- (void)visitContextNode:(KWContextNode *)aNode {
-    [self.exampleNodeStack addObject:aNode];
-    
-    @try {
-        [aNode.registerMatchersNode acceptExampleNodeVisitor:self];
-        [aNode.beforeAllNode acceptExampleNodeVisitor:self];
-
-        for (id<KWExampleNode> node in aNode.nodes)
-            [node acceptExampleNodeVisitor:self];
-        
-        [aNode.afterAllNode acceptExampleNodeVisitor:self];
-    } @catch (NSException *exception) {
-        KWFailure *failure = [KWFailure failureWithCallSite:aNode.callSite format:@"%@ \"%@\" raised",
-                                                                                  [exception name],
-                                                                                  [exception reason]];
-        [self reportFailure:failure];
-    }
-    
-    [self.exampleNodeStack removeLastObject];
-}
-
-- (void)visitRegisterMatchersNode:(KWRegisterMatchersNode *)aNode {
-    [self.matcherFactory registerMatcherClassesWithNamespacePrefix:aNode.namespacePrefix];
-}
-
-- (void)visitBeforeAllNode:(KWBeforeAllNode *)aNode {
-    if (aNode.block == nil)
-        return;
-    
-    aNode.block();
-}
-
-- (void)visitAfterAllNode:(KWAfterAllNode *)aNode {
-    if (aNode.block == nil)
-        return;
-    
-    aNode.block();
-}
-
-- (void)visitBeforeEachNode:(KWBeforeEachNode *)aNode {
-    if (aNode.block == nil)
-        return;
-    
-    aNode.block();
-}
-
-- (void)visitAfterEachNode:(KWAfterEachNode *)aNode {
-    if (aNode.block == nil)
-        return;
-    
-    aNode.block();
-}
-
-- (void)visitItNode:(KWItNode *)aNode {
-    if (aNode.block == nil)
-        return;
-    
-    @try {
-        for (KWContextNode *contextNode in self.exampleNodeStack) {
-            if (contextNode.beforeEachNode.block != nil)
-                contextNode.beforeEachNode.block();
-        }
-        
-        // Add it node to the stack
-        [self.exampleNodeStack addObject:aNode];
-
-        @try {
-            aNode.block();
-        
-#if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG
-            NSException *invocationException = KWGetAndClearExceptionFromAcrossInvocationBoundary();
-            [invocationException raise];
-#endif // #if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG 
-            
-            // Finish verifying and clear
-            for (id<KWVerifying> verifier in self.verifiers)
-                [verifier exampleWillEnd];    
-        } @catch (NSException *exception) {
-            KWFailure *failure = [KWFailure failureWithCallSite:aNode.callSite format:@"%@ \"%@\" raised",
-                                                                                      [exception name],
-                                                                                      [exception reason]];
-            [self reportFailure:failure];
-        }
-        
-        [self.verifiers removeAllObjects];
-        
-        // Remove it node from the stack
-        [self.exampleNodeStack removeLastObject];
-        
-        for (KWContextNode *contextNode in self.exampleNodeStack) {
-            if (contextNode.afterEachNode.block != nil)
-                contextNode.afterEachNode.block();
-        }
-    } @catch (NSException *exception) {
-        KWFailure *failure = [KWFailure failureWithCallSite:aNode.callSite format:@"%@ \"%@\" raised",
-                                                                                  [exception name],
-                                                                                  [exception reason]];
-        [self reportFailure:failure];
-    }
-    
-    // Always clear stubs and spies at the end of it blocks
-    KWClearAllMessageSpies();
-    KWClearAllObjectStubs();
-}
-
-- (void)visitPendingNode:(KWPendingNode *)aNode {
-    [self.exampleNodeStack addObject:aNode];
-    NSLog(@"\"%@\" PENDING", [self descriptionForExampleContext]);
-    [self.exampleNodeStack removeLastObject];
+    KWExampleSuite *exampleSuite = [[KWExampleGroupBuilder sharedExampleGroupBuilder] buildExampleGroups:^{
+        [self buildExampleGroups];
+    }];
+  
+    return [exampleSuite invocationsForTestCase];
 }
 
 #pragma mark -
 #pragma mark Running Specs
 
-- (void)runSpec {
+- (void)invokeTest 
+{
+    self.example = [[self invocation] kw_example];
+
     NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
-    
+
     @try {
-        [self configureEnvironment];
-        
-        // Build example group
-        [[KWExampleGroupBuilder sharedExampleGroupBuilder] startExampleGroups];
-        [self buildExampleGroups];
-        KWContextNode *exampleGroup = [[KWExampleGroupBuilder sharedExampleGroupBuilder] endExampleGroups];
-        
-        // Interpret example group
-        [exampleGroup acceptExampleNodeVisitor:self];
-        
-        [self cleanupEnvironment];
+        [self.example runWithDelegate:self];
     } @catch (NSException *exception) {
         [self failWithException:exception];
     }
     
+    [[self invocation] kw_setExample:nil];
+    
     [subPool release];
 }
 
-// Called by the SenTestingKit test suite when it is time to run the test.
-// We don't actually use the invocation the receiver was initialized with since
-// that just invokes -runSpec. Instead, we call it directly.
-- (void)invokeTest {
-    [self runSpec];
+#pragma mark - KWExampleGroupDelegate methods
+
+- (void)example:(KWExample *)example didFailWithFailure:(KWFailure *)failure
+{
+    [self failWithException:[failure exceptionValue]];
+}
+
+#pragma mark -
+#pragma mark Verification proxies
+
++ (id)addVerifier:(id<KWVerifying>)aVerifier
+{
+  return [[[KWExampleGroupBuilder sharedExampleGroupBuilder] currentExample] addVerifier:aVerifier];
+}
+
++ (id)addExistVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite
+{
+  return [[[KWExampleGroupBuilder sharedExampleGroupBuilder] currentExample] addExistVerifierWithExpectationType:anExpectationType callSite:aCallSite];
+}
+
++ (id)addMatchVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite
+{
+  return [[[KWExampleGroupBuilder sharedExampleGroupBuilder] currentExample] addMatchVerifierWithExpectationType:anExpectationType callSite:aCallSite];
+}
+
++ (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSInteger)timeout
+{
+  return [[[KWExampleGroupBuilder sharedExampleGroupBuilder] currentExample] addAsyncVerifierWithExpectationType:anExpectationType callSite:aCallSite timeout:timeout];
 }
 
 @end
-
-#endif // #if KW_BLOCKS_ENABLED

@@ -7,13 +7,14 @@
 #import "KiwiConfiguration.h"
 #import "KWBlock.h"
 
-#if KW_BLOCKS_ENABLED
-
 @class KWCallSite;
+@class KWExample;
+@class KWExampleSuite;
 
 @interface KWExampleGroupBuilder : NSObject {
 @private
     NSMutableArray *contextNodeStack;
+    NSMutableSet *suites;
 }
 
 #pragma mark -
@@ -25,9 +26,11 @@
 #pragma mark Building Example Groups
 
 @property (nonatomic, readonly) BOOL isBuildingExampleGroup;
+@property (nonatomic, retain, readonly) KWExampleSuite *exampleSuite;
+@property (nonatomic, retain) KWExample *currentExample;
 
-- (void)startExampleGroups;
-- (id)endExampleGroups;
+- (KWExampleSuite *)buildExampleGroups:(void (^)(void))buildingBlock;
+- (KWExample *)currentExample;
 
 - (void)pushContextNodeWithCallSite:(KWCallSite *)aCallSite description:(NSString *)aDescription;
 - (void)popContextNode;
@@ -40,5 +43,3 @@
 - (void)addPendingNodeWithCallSite:(KWCallSite *)aCallSite description:(NSString *)aDescription;
 
 @end
-
-#endif // #if KW_BLOCKS_ENABLED

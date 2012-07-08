@@ -45,12 +45,12 @@
 - (BOOL)evaluate {
     if (![self.subject respondsToSelector:@selector(containsObjectEqualToOrMatching:)])
         [NSException raise:@"KWMatcherException" format:@"subject does not respond to -containsObjectEqualToOrMatching:"];
-    
+
     for (id object in self.objects) {
         if (![self.subject containsObjectEqualToOrMatching:object])
           return NO;
     }
-    
+
     return YES;
 }
 
@@ -61,11 +61,16 @@
     if ([self.objects count] == 1)
         return [KWFormatter formatObject:[self.objects objectAtIndex:0]];
 
-    return [KWFormatter formatObject:self.objects];
+    return [NSString stringWithFormat:@"all of %@", [KWFormatter formatObject:self.objects]];
 }
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to contain %@", [self objectsPhrase]];
+}
+
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"contain %@", [self objectsPhrase]];
 }
 
 #pragma mark -
@@ -87,17 +92,17 @@
 #pragma mark Verifying
 
 - (void)containObjects:(id)firstObject, ... {
-    NSMutableArray *objects = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *objects = [NSMutableArray array];
+
     va_list argumentList;
     va_start(argumentList, firstObject);
     id object = firstObject;
-    
+
     while (object != nil) {
         [objects addObject:object];
         object = va_arg(argumentList, id);
     }
-    
+
     va_end(argumentList);
     [(id)self containObjectsInArray:objects];
 }

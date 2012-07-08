@@ -43,7 +43,7 @@ BOOL KWObjCTypeIsUnsignedIntegral(const char *objCType) {
 }
 
 BOOL KWObjCTypeIsObject(const char *objCType) {
-    return strcmp(objCType, @encode(id)) == 0;
+    return strcmp(objCType, @encode(id)) == 0 || strcmp(objCType, "@?") == 0;
 }
 
 BOOL KWObjCTypeIsCharString(const char *objCType) {
@@ -80,6 +80,11 @@ NSUInteger KWObjCTypeLength(const char *objCType) {
     return [signature methodReturnLength];
 }
 
+BOOL KWObjCTypeIsBlock(const char *objCType) {
+    return strcmp(objCType, "@?") == 0;
+}
+
+
 #pragma mark -
 #pragma mark Selector Utlities
 
@@ -92,6 +97,6 @@ NSUInteger KWSelectorParameterCount(SEL selector) {
         if ([selectorString characterAtIndex:i] == ':')
             ++parameterCount;
     }
-    
+
     return parameterCount;
 }

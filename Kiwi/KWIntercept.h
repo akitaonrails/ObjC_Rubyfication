@@ -5,7 +5,7 @@
 //
 
 #import "KiwiConfiguration.h"
-#import </usr/include/objc/runtime.h>
+#import <objc/runtime.h>
 
 @class KWMessagePattern;
 @class KWStub;
@@ -31,6 +31,9 @@ Class KWRealClassForClass(Class aClass);
 
 Class KWSetupObjectInterceptSupport(id anObject);
 void KWSetupMethodInterceptSupport(Class interceptClass, SEL aSelector);
+
+#pragma mark - Managing Stubs & Spies
+void KWClearStubsAndSpies(void);
 
 #pragma mark -
 #pragma mark Managing Objects Stubs

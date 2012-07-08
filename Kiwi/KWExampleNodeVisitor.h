@@ -6,8 +6,6 @@
 
 #import "KiwiConfiguration.h"
 
-#if KW_BLOCKS_ENABLED
-
 @class KWAfterAllNode;
 @class KWAfterEachNode;
 @class KWBeforeAllNode;
@@ -22,6 +20,8 @@
 #pragma mark -
 #pragma mark Visiting Nodes
 
+@optional
+
 - (void)visitContextNode:(KWContextNode *)aNode;
 - (void)visitRegisterMatchersNode:(KWRegisterMatchersNode *)aNode;
 - (void)visitBeforeAllNode:(KWBeforeAllNode *)aNode;
@@ -32,5 +32,3 @@
 - (void)visitPendingNode:(KWPendingNode *)aNode;
 
 @end
-
-#endif // #if KW_BLOCKS_ENABLED

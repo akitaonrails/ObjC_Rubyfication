@@ -12,6 +12,7 @@
 #import "NSInvocation+KiwiAdditions.h"
 #import "NSMethodSignature+KiwiAdditions.h"
 #import "KWHCMatcher.h"
+#import "Kiwi.h"
 
 @implementation KWMessagePattern
 
@@ -37,13 +38,13 @@
     NSUInteger count = KWSelectorParameterCount(aSelector);
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
     [array addObject:(firstArgumentFilter != nil) ? firstArgumentFilter : [KWNull null]];
-    
+
     for (NSUInteger i = 1; i < count; ++i)
     {
         id object = va_arg(argumentList, id);
         [array addObject:(object != nil) ? object : [KWNull null]];
     }
-    
+
     va_end(argumentList);
     return [self initWithSelector:aSelector argumentFilters:array];
 }
@@ -83,7 +84,7 @@
         }
     }
 
-    return [self messagePatternWithSelector:[anInvocation selector] argumentFilters:argumentFilters];
+    return [self messagePatternWithSelector:[anInvocation selector] argumentFilters:[argumentFilters autorelease]];
 }
 
 - (void)dealloc {
@@ -118,7 +119,7 @@
     for (NSUInteger i = 0; i < numberOfMessageArguments && i < numberOfArgumentFilters; ++i) {
         const char *objCType = [signature messageArgumentTypeAtIndex:i];
         id object = nil;
-        
+
         // Extract message argument into object (wrapping values if neccesary)
         if (KWObjCTypeIsObject(objCType)) {
             [anInvocation getMessageArgument:&object atIndex:i];
@@ -129,29 +130,31 @@
 
         // Match argument filter to object
         id argumentFilter = [self.argumentFilters objectAtIndex:i];
-        
-        if (KWObjCTypeIsObject(objCType)) {
-            if ([argumentFilter isEqual:[KWNull null]]) {
-                if (object != nil)
+
+        if ([argumentFilter isEqual:[KWAny any]]) {
+            continue;
+        }
+
+        if ([argumentFilter conformsToProtocol:@protocol(HCMatcher)]) {
+            id<HCMatcher> matcher = (id<HCMatcher>)argumentFilter;
+            if ([object isKindOfClass:[KWValue class]] && [object isNumeric]) {
+                NSNumber *number = [object numberValue];
+                if (![matcher matches:number]) {
                     return NO;
-            } else if ([argumentFilter respondsToSelector:@selector(matches:)]) {
-              return [(id<HCMatcher>)argumentFilter matches:object];
-            } else if (![argumentFilter isEqual:object]) {
+                }
+            } else if (![matcher matches:object]) {
                 return NO;
             }
-        } else {
-            if ([argumentFilter isEqual:[KWNull null]]) {
-                if (!KWObjCTypeIsPointerLike(objCType))
-                    [NSException raise:@"KWMessagePatternException" format:@"nil was specified as an argument filter, but argument is not a pointer"];
-                
-                void *p = nil;
-                [anInvocation getMessageArgument:&p atIndex:i];
-                
-                if (p != nil)
-                    return NO;
-            } else if (![argumentFilter isEqual:object]) {
-                return NO;
+        } else if ([argumentFilter isEqual:[KWNull null]]) {
+            if (!KWObjCTypeIsPointerLike(objCType)) {
+                [NSException raise:@"KWMessagePatternException" format:@"nil was specified as an argument filter, but argument(%d) is not a pointer for @selector(%@)", i + 1, NSStringFromSelector([anInvocation selector])];
             }
+            void *p = nil;
+            [anInvocation getMessageArgument:&p atIndex:i];
+            if (p != nil)
+                return NO;
+        } else if (![argumentFilter isEqual:object]) {
+            return NO;
         }
     }
 
@@ -182,7 +185,7 @@
 
     if (self.argumentFilters == nil && aMessagePattern.argumentFilters == nil)
         return YES;
-    
+
     return [self.argumentFilters isEqualToArray:aMessagePattern.argumentFilters];
 }
 

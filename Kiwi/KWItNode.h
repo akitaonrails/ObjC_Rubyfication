@@ -8,17 +8,21 @@
 #import "KWBlockNode.h"
 #import "KWExampleNode.h"
 
-#if KW_BLOCKS_ENABLED
-
 @class KWPendingNode;
+@class KWExample;
+@class KWContextNode;
 
 @interface KWItNode : KWBlockNode<KWExampleNode>
+
+@property (nonatomic, assign) KWExample *example;
+@property (nonatomic, retain, readonly) KWContextNode *context;
 
 #pragma mark -
 #pragma mark Initializing
 
-+ (id)itNodeWithCallSite:(KWCallSite *)aCallSite description:(NSString *)aDescription block:(KWVoidBlock)aBlock;
++ (id)itNodeWithCallSite:(KWCallSite *)aCallSite 
+             description:(NSString *)aDescription 
+                 context:(KWContextNode *)context 
+                   block:(KWVoidBlock)aBlock;
 
 @end
-
-#endif // #if KW_BLOCKS_ENABLED

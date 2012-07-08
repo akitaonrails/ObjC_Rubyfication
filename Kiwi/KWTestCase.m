@@ -5,7 +5,7 @@
 //
 
 #import "KWTestCase.h"
-#import </usr/include/objc/runtime.h>
+#import <objc/runtime.h>
 #import "KWDeviceInfo.h"
 #import "KWExistVerifier.h"
 #import "KWFailure.h"
@@ -41,7 +41,7 @@
         verifiers = [[NSMutableArray alloc] init];
         failures = [[NSMutableArray alloc] init];
     }
-    
+
     return self;
 }
 
@@ -67,8 +67,7 @@
 }
 
 - (void)tearDownExampleEnvironment {
-    KWClearAllMessageSpies();
-    KWClearAllObjectStubs();
+    KWClearStubsAndSpies();
 }
 
 #pragma mark -
@@ -90,7 +89,7 @@
 - (id)addVerifier:(id<KWVerifying>)aVerifier {
     if (![self.verifiers containsObject:aVerifier])
         [self.verifiers addObject:aVerifier];
-    
+
     return aVerifier;
 }
 
@@ -142,29 +141,29 @@
 + (NSArray *)testInvocations {
     // Examples are methods returning void with no parameters in the receiver
     // that begin with "it" followed by an uppercase word.
-    NSMutableArray *exampleInvocations = [[[NSMutableArray alloc] init] autorelease];    
+    NSMutableArray *exampleInvocations = [[[NSMutableArray alloc] init] autorelease];
     unsigned int methodCount = 0;
     Method *methods = class_copyMethodList([self class], &methodCount);
-    
+
     for (unsigned int i = 0; i < methodCount; i++) {
         SEL selector = method_getName(methods[i]);
         NSString *selectorString = NSStringFromSelector(selector);
-        
+
         if (KWStringHasStrictWordPrefix(selectorString, @"it")) {
             const char *encoding = method_getTypeEncoding(methods[i]);
             NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:encoding];
-            
+
             if ([signature numberOfMessageArguments] > 0 ||
                 !KWObjCTypeEqualToObjCType([signature methodReturnType], @encode(void)))
                 continue;
-            
+
             NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
             [invocation setSelector:selector];
             [exampleInvocations addObject:invocation];
         }
     }
-    
-    free(methods);    
+
+    free(methods);
     return exampleInvocations;
 }
 
@@ -175,16 +174,16 @@
 - (void)invokeTest {
     NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
     [self setUpExampleEnvironment];
-    
+
     @try {
         [super invokeTest];
-        
+
         for (id<KWVerifying> verifier in self.verifiers)
             [verifier exampleWillEnd];
     } @catch (NSException *exception) {
         [self failWithException:exception];
     }
-    
+
     [self tearDownExampleEnvironment];
     [subPool release];
 }
